@@ -23,7 +23,7 @@ public class Auto extends Vehiculo{
     public static Auto create(){
         Auto auto = new Auto();
 
-        auto.chasis = IInputFile.ObtenerNumero("Ingresu su chasis:");
+        auto.chasis = IInputFile.ObtenerNumero("Ingrese su chasis:");
 
         return auto;
     }
