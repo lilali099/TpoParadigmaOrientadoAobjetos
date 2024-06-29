@@ -20,11 +20,11 @@ public class Auto extends Vehiculo{
         this.cantidadDePuertas = cantidadDePuertas;
     }
 
-    public static Auto create(){
+    /*public static Auto create(){
         Auto auto = new Auto();
 
         auto.chasis = IInputFile.ObtenerNumero("Ingrese su chasis:");
 
         return auto;
-    }
+    }*/
 }
