@@ -1,5 +1,7 @@
 package Classes;
 
+import Utils.IInputFile;
+
 public class Auto extends Vehiculo{
     private int chasis;
     private int cantidadDePuertas;
@@ -16,5 +18,13 @@ public class Auto extends Vehiculo{
 
     public void setCantidadDePuertas(int cantidadDePuertas) {
         this.cantidadDePuertas = cantidadDePuertas;
+    }
+
+    public static Auto create(){
+        Auto auto = new Auto();
+
+        auto.chasis = IInputFile.ObtenerNumero("Ingresu su chasis:");
+
+        return auto;
     }
 }
