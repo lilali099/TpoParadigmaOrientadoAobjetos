@@ -1,5 +1,6 @@
 import Classes.Auto;
 import Classes.Moto;
+import Utils.IInputFile;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -9,6 +10,15 @@ public class Main {
         Auto auto1= new Auto("azul", "Toyota","Cross", 2023, "j1234k",10000, 35000000, 5);
         Moto moto1 = new Moto("beige", "Yamaha","FZ",2017,"S9876B",27550,2000000,250);
 
+
+        var data = IInputFile.obtenerDato("hola", String.class);
+
+        System.out.println(data);
+
+
+        var data2 = IInputFile.obtenerDato("hola", Integer.class);
+
+        System.out.println(data2);
     }
 
 }
