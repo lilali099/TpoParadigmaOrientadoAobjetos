@@ -2,6 +2,9 @@
 /shelf/
 ./out/
 out
+out/production/*
+out/production/TpoParadigmaOrientadoAobjetos
+out/production/TpoParadigmaOrientadoAobjetos/Classes
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
