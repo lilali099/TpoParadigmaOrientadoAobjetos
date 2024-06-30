@@ -12,6 +12,7 @@ public class CrearMoto implements IOpcionMenuSeleccionable {
 
         if (moto != null) {
             concecionaria.getVehiculos().add(moto);
+            moto.mostrarDetalle();
         }
     }
 

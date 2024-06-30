@@ -1,6 +1,8 @@
 package Domain;
 
-public class Venta {
+import Utils.IDataTableRecord;
+
+public class Venta implements IDataTableRecord {
     public boolean entregado;
     private String metodoDePago;
     private double precioFinal;
@@ -43,6 +45,15 @@ public class Venta {
 
     public static Venta create(){
         return new Venta();
+    }
+
+    @Override
+    public String getDataTableRecord() {
+        return "";
+    }
+
+    public void mostrarDetalle(){
+
     }
 }
 
