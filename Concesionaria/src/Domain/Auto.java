@@ -90,7 +90,7 @@ public class Auto extends Vehiculo{
 
     @Override
     public String getDataTableRecord() {
-        return "";
+        return "Tipo: Auto, Marca: "+ getMarca() +", Modelo: "+ getModelo() +", Año: "+ getAnio() +", Color: "+ getColor();
     }
 
     @Override

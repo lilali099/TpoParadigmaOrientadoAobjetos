@@ -91,11 +91,23 @@ public class Moto extends Vehiculo{
 
     @Override
     public String getDataTableRecord() {
-        return "";
+        return "Tipo: Moto, Marca: "+ getMarca() +", Modelo: "+ getModelo() + ", Año: "+ getAnio() + ", Color: "+ getColor();
+
     }
 
     @Override
     public void mostrarDetalle() {
+        System.out.println ("Detalles de la moto");
+        System.out.println ("Color: " +getColor());
+        System.out.println ("Marca: " +getMarca());
+        System.out.println ("Modelo: " +getModelo());
+        System.out.println ("Año: " + getAnio());
+        System.out.println ("Patente: " +getPatente());
+        System.out.println ("Kilometros: " +getKm());
+        System.out.println("Tipo de moto" + getTipoMoto());
+        System.out.println("Cantidad de CC" + getCilindrada());
+        System.out.println ("Precio: " +getPrecio());
+
 
     }
 }

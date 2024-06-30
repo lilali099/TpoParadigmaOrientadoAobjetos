@@ -3,7 +3,7 @@ package Domain;
 import Utils.IDataTableRecord;
 
 public class Venta implements IDataTableRecord {
-    public boolean entregado;
+    private boolean entregado;
     private String metodoDePago;
     private double precioFinal;
     private Vehiculo vehiculo;
@@ -62,10 +62,19 @@ public class Venta implements IDataTableRecord {
 
     @Override
     public String getDataTableRecord() {
-        return "";
+        return "Método de pago: "+ getMetodoDePago()+ ", Precio final:" + getPrecioFinal();
     }
 
     public void mostrarDetalle(){
+        System.out.println ("Detalles de la venta");
+        System.out.println("Método de pago: "+getMetodoDePago());
+        System.out.println("Precio final:"+getPrecioFinal());
+        System.out.println("Cuotas:" +getPlanCuotas());
+        System.out.println("Comprador: "+getComprador());
+        System.out.println("Vendedor: "+getVendedor());
+        getVehiculo().mostrarDetalle();
+
+
 
     }
 }
