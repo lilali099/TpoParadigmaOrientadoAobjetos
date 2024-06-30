@@ -34,7 +34,7 @@ public class Main {
         });
 
         while (true){
-            SelectMenu.generarMenu(concesionaria,"Menu Principal", opcionesMenuPrincipal, false);
+            SelectMenu.generarMenu(concesionaria,"Menú Principal", opcionesMenuPrincipal, false);
         }
     }
 
