@@ -3,14 +3,8 @@ package Domain;
 import Utils.InputFile;
 
 public class Moto extends Vehiculo{
-    private int tipoMoto;
+    private String tipoMoto;
     private int cilindrada;
-
-    /*
-    public Moto(String color, String marca, String modelo, int anio, String patente, int km, double precio, int cilindrada) {
-        super(color, marca, modelo, anio, patente, km, precio);
-        this.cilindrada = cilindrada;
-    }*/
 
     protected Moto() {
 
@@ -21,66 +15,65 @@ public class Moto extends Vehiculo{
     public void setCilindrada(int cilindrada) {
         this.cilindrada = cilindrada;
     }
-    public int getTipoMoto() {
+    public String getTipoMoto() {
         return tipoMoto;
     }
-    public void setTipoMoto(int tipoMoto) {
+    public void setTipoMoto(String tipoMoto) {
         this.tipoMoto = tipoMoto;
     }
 
     public static Moto create(){
         Moto moto = new Moto();
 
-        Integer anio = InputFile.obtenerDato("el Año", Integer.class);
+        Integer anio = InputFile.obtenerDatoInteger("Año");
         if (anio == null) {
             return null;
         }
         moto.setAnio(anio);
 
-        //completar con todas las propiedades
-        Integer tipoMoto = InputFile.obtenerDato("el Tipo de moto", Integer.class);
+        String tipoMoto = InputFile.obtenerDatoString("Tipo de moto");
         if (tipoMoto == null) {
             return null;
         };
         moto.setTipoMoto(tipoMoto);
 
-        Integer cilindrada = InputFile.obtenerDato("la Cilindrada", Integer.class);
+        Integer cilindrada = InputFile.obtenerDatoInteger("Cilindrada de la moto");
         if (cilindrada == null) {
             return null;
         };
         moto.setCilindrada(cilindrada);
 
-        String color = InputFile.obtenerDato("el Color", String.class);
+        String color = InputFile.obtenerDatoString("Color");
         if (color == null) {
             return null;
         };
         moto.setColor(color);
 
-        String marca  = InputFile.obtenerDato("la Marca", String.class);
+        String marca  = InputFile.obtenerDatoString("Marca");
         if (marca == null) {
             return null;
         };
         moto.setMarca(marca);
 
-        String modelo = InputFile.obtenerDato("el Modelo", String.class);
+        String modelo = InputFile.obtenerDatoString("Modelo");
         if (modelo == null) {
             return null;
         };
         moto.setModelo(modelo);
 
-        String patente = InputFile.obtenerDato("la Patente", String.class);
+        String patente = InputFile.obtenerDatoString("Patente");
         if (patente == null) {
             return null;
         };
         moto.setPatente(patente);
 
-        Integer km = InputFile.obtenerDato("el Kilometraje", Integer.class);
+        Integer km = InputFile.obtenerDatoInteger("Kilometraje");
         if (km == null) {
             return null;
         };
         moto.setKm(km);
 
-        Double precio = InputFile.obtenerDato("el Precio", Double.class);
+        Double precio = InputFile.obtenerDatoDouble("Precio");
         if (precio == null) {
             return null;
         }
@@ -107,7 +100,5 @@ public class Moto extends Vehiculo{
         System.out.println("Tipo de moto" + getTipoMoto());
         System.out.println("Cantidad de CC" + getCilindrada());
         System.out.println ("Precio: " +getPrecio());
-
-
     }
 }

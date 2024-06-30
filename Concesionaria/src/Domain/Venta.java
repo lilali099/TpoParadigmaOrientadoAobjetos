@@ -81,12 +81,12 @@ public class Venta implements IDataTableRecord {
             return null;
         }
         venta.setVehiculo(vehiculoList.get(vehiculoNumero));
-        String comprador = InputFile.obtenerDato("Ingrese el nombre del comprador", String.class);
+        String comprador = InputFile.obtenerDatoString("Ingrese el nombre del comprador");
         if (comprador == null) {
             return null;
         }
         venta.setComprador(comprador);        venta.setVehiculo(vehiculoList.get(vehiculoNumero));
-        String vendedor = InputFile.obtenerDato("Ingrese el nombre del vendedor", String.class);
+        String vendedor = InputFile.obtenerDatoString("Ingrese el nombre del vendedor");
         if (vendedor == null) {
             return null;
         }

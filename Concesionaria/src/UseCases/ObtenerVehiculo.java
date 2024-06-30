@@ -1,7 +1,6 @@
 package UseCases;
 
 import Domain.Auto;
-import Domain.Concecionaria;
 import Domain.Moto;
 import Domain.Vehiculo;
 import Utils.IOpcionFiltradoSeleccionable;
