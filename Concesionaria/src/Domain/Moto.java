@@ -6,12 +6,6 @@ public class Moto extends Vehiculo{
     private String tipoMoto;
     private int cilindrada;
 
-    /*
-    public Moto(String color, String marca, String modelo, int anio, String patente, int km, double precio, int cilindrada) {
-        super(color, marca, modelo, anio, patente, km, precio);
-        this.cilindrada = cilindrada;
-    }*/
-
     protected Moto() {
 
     }
@@ -37,7 +31,6 @@ public class Moto extends Vehiculo{
         }
         moto.setAnio(anio);
 
-        //completar con todas las propiedades
         String tipoMoto = InputFile.obtenerDatoString("Tipo de moto");
         if (tipoMoto == null) {
             return null;
@@ -107,7 +100,5 @@ public class Moto extends Vehiculo{
         System.out.println("Tipo de moto" + getTipoMoto());
         System.out.println("Cantidad de CC" + getCilindrada());
         System.out.println ("Precio: " +getPrecio());
-
-
     }
 }
