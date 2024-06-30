@@ -14,7 +14,7 @@ public class Main {
 
         List<IOpcionMenuSeleccionable> opcionesMenuPrincipal = new LinkedList<>();
         opcionesMenuPrincipal.add(new AñadirNuevoVehiculoMenu());
-        opcionesMenuPrincipal.add(new GenerarVentasMenu());
+        opcionesMenuPrincipal.add(new CrearVenta());
         opcionesMenuPrincipal.add(new MostarVentasMenu());
         opcionesMenuPrincipal.add(new MostrarCatalogoMenu());
         opcionesMenuPrincipal.add(new MostarInformeVentas());
@@ -34,7 +34,6 @@ public class Main {
         });
 
         while (true){
-            System.out.println("Menu Principal");
             SelectMenu.generarMenu(concecionaria,"Menu Principal", opcionesMenuPrincipal, false);
         }
     }

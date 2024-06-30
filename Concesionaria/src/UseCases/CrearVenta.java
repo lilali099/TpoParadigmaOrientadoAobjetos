@@ -4,11 +4,11 @@ import Domain.Concecionaria;
 import Domain.Venta;
 import Utils.IOpcionMenuSeleccionable;
 
-public class GenerarVentasMenu implements IOpcionMenuSeleccionable {
+public class CrearVenta implements IOpcionMenuSeleccionable {
     @Override
     public void execute(Concecionaria concecionaria) {
         System.out.println("Generar Venta");
-        Venta venta = Venta.create();
+        Venta venta = Venta.create(concecionaria.getVehiculos().stream().toList());
 
         if (venta != null) {
             concecionaria.getVentas().add(venta);
