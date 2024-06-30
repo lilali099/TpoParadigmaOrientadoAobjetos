@@ -2,6 +2,7 @@ package Domain;
 
 import UseCases.ObtenerVehiculo;
 import Utils.IDataTableRecord;
+import Utils.InputFile;
 
 import java.util.List;
 
@@ -34,6 +35,14 @@ public class Venta implements IDataTableRecord {
 
     public String getComprador() {
         return comprador;
+    }
+
+    public void setVendedor(String vendedor) {
+        this.vendedor = vendedor;
+    }
+
+    public void setComprador(String comprador) {
+        this.comprador = comprador;
     }
 
     public String getVendedor() {
@@ -72,6 +81,16 @@ public class Venta implements IDataTableRecord {
             return null;
         }
         venta.setVehiculo(vehiculoList.get(vehiculoNumero));
+        String comprador = InputFile.obtenerDato("Ingrese el nombre del comprador", String.class);
+        if (comprador == null) {
+            return null;
+        }
+        venta.setComprador(comprador);        venta.setVehiculo(vehiculoList.get(vehiculoNumero));
+        String vendedor = InputFile.obtenerDato("Ingrese el nombre del vendedor", String.class);
+        if (vendedor == null) {
+            return null;
+        }
+        venta.setVendedor(vendedor);
 
         return venta;
     }
