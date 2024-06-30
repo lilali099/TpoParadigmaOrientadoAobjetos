@@ -30,13 +30,13 @@ public class Auto extends Vehiculo{
     public static Auto create(){
         Auto auto = new Auto();
 
-        Integer chasis = InputFile.obtenerDatoInteger("chasis");
+        Integer chasis = InputFile.obtenerDatoInteger("el chasis");
         if (chasis == null) {
             return null;
         }
         auto.setChasis(chasis);
 
-        Integer cantidadDePuertas = InputFile.obtenerDatoInteger("cantidad de puertas");
+        Integer cantidadDePuertas = InputFile.obtenerDatoInteger("la cantidad de puertas");
         if (cantidadDePuertas == null) {
             return null;
         }
@@ -90,7 +90,7 @@ public class Auto extends Vehiculo{
 
     @Override
     public String getDataTableRecord() {
-        return "Tipo: Auto, Marca: "+ getMarca() +", Modelo: "+ getModelo() +", Año: "+ getAnio() +", Color: "+ getColor();
+        return "Tipo: Auto, Marca: "+ getMarca() +", Modelo: "+ getModelo() +", Año: "+ getAnio() +", Color: "+ getColor()+ ", Precio: "+ getPrecio();
     }
 
     @Override

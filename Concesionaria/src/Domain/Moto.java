@@ -25,55 +25,55 @@ public class Moto extends Vehiculo{
     public static Moto create(){
         Moto moto = new Moto();
 
-        Integer anio = InputFile.obtenerDatoInteger("Año");
+        Integer anio = InputFile.obtenerDatoInteger("el año");
         if (anio == null) {
             return null;
         }
         moto.setAnio(anio);
 
-        String tipoMoto = InputFile.obtenerDatoString("Tipo de moto");
+        String tipoMoto = InputFile.obtenerDatoString("el tipo de moto");
         if (tipoMoto == null) {
             return null;
         };
         moto.setTipoMoto(tipoMoto);
 
-        Integer cilindrada = InputFile.obtenerDatoInteger("Cilindrada de la moto");
+        Integer cilindrada = InputFile.obtenerDatoInteger("la cilindrada");
         if (cilindrada == null) {
             return null;
         };
         moto.setCilindrada(cilindrada);
 
-        String color = InputFile.obtenerDatoString("Color");
+        String color = InputFile.obtenerDatoString("el color");
         if (color == null) {
             return null;
         };
         moto.setColor(color);
 
-        String marca  = InputFile.obtenerDatoString("Marca");
+        String marca  = InputFile.obtenerDatoString("la marca");
         if (marca == null) {
             return null;
         };
         moto.setMarca(marca);
 
-        String modelo = InputFile.obtenerDatoString("Modelo");
+        String modelo = InputFile.obtenerDatoString("el modelo");
         if (modelo == null) {
             return null;
         };
         moto.setModelo(modelo);
 
-        String patente = InputFile.obtenerDatoString("Patente");
+        String patente = InputFile.obtenerDatoString("la patente");
         if (patente == null) {
             return null;
         };
         moto.setPatente(patente);
 
-        Integer km = InputFile.obtenerDatoInteger("Kilometraje");
+        Integer km = InputFile.obtenerDatoInteger("el kilometraje");
         if (km == null) {
             return null;
         };
         moto.setKm(km);
 
-        Double precio = InputFile.obtenerDatoDouble("Precio");
+        Double precio = InputFile.obtenerDatoDouble("el precio");
         if (precio == null) {
             return null;
         }
@@ -84,7 +84,7 @@ public class Moto extends Vehiculo{
 
     @Override
     public String getDataTableRecord() {
-        return "Tipo: Moto, Marca: "+ getMarca() +", Modelo: "+ getModelo() + ", Año: "+ getAnio() + ", Color: "+ getColor();
+        return "Tipo: Moto, Marca: "+ getMarca() +", Modelo: "+ getModelo() + ", Año: "+ getAnio() + ", Color: "+ getColor()+ ",Precio: "+ getPrecio();
 
     }
 
