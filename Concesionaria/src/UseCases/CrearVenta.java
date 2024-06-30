@@ -12,6 +12,7 @@ public class CrearVenta implements IOpcionMenuSeleccionable {
 
         if (venta != null) {
             concecionaria.getVentas().add(venta);
+            concecionaria.getVehiculos().remove(venta.getVehiculo());
             venta.mostrarDetalle();
         }
     }
