@@ -111,7 +111,7 @@ public class MostarVentasMenu implements IOpcionMenuSeleccionable {
 
         DataTable<Venta> dataTable = new DataTable<>();
 
-        dataTable.execute("Menu Ventas", filtros, ordenado, concecionaria.getVentas().stream().toList());
+        dataTable.execute("Menú Ventas", filtros, ordenado, concecionaria.getVentas().stream().toList());
     }
     @Override
     public String tituloMenuSeleccioble() {

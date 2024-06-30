@@ -57,7 +57,7 @@ public class ObtenerVehiculo {
 
             @Override
             public String tituloMenuSeleccioble() {
-                return "PRECIO ASC";
+                return "Precio ASC";
             }
         });
 
@@ -71,7 +71,7 @@ public class ObtenerVehiculo {
 
             @Override
             public String tituloMenuSeleccioble() {
-                return "PRECIO DESC";
+                return "Precio DESC";
             }
         });
 
@@ -187,8 +187,8 @@ public class ObtenerVehiculo {
         return -1;
     }
 
-    private static String GetTitulo() {
-        String titulo = "Menu Ventas";
+    private String GetTitulo() {
+        String titulo = "Menú Ventas";
         if (filtroActual != null) {
             titulo += ", " + filtroActual.tituloMenuSeleccioble();
         }
@@ -198,13 +198,14 @@ public class ObtenerVehiculo {
         return titulo;
     }
 
-    private static String leerOpcion() {
-        System.out.print("Ingrese el numero de la opción: ");
+    private String leerOpcion() {
+        System.out.print("Ingrese el número de la opción: ");
         return lectura.nextLine();
     }
 
-    private static void mostrarVehiculo(Vehiculo vehiculo, int contador) {
-        System.out.println(contador + ") Propiedades importantes");
+    private void mostrarVehiculo(Vehiculo vehiculo, int contador) {
+        System.out.println(contador + ") Tipo: "+(vehiculo instanceof Auto? "Auto": "Moto")+", Marca: "+ vehiculo.getMarca() +", Modelo: "+ vehiculo.getModelo() +", Año: "+ vehiculo.getAnio() +", Color: "+ vehiculo.getColor());
+
     }
 
     private static String datoInvalido(String value) {

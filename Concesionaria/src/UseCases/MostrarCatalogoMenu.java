@@ -51,7 +51,7 @@ public class MostrarCatalogoMenu implements IOpcionMenuSeleccionable {
 
             @Override
             public String tituloMenuSeleccioble() {
-                return "PRECIO ASC";
+                return "Precio ASC";
             }
         });
 
@@ -65,17 +65,17 @@ public class MostrarCatalogoMenu implements IOpcionMenuSeleccionable {
 
             @Override
             public String tituloMenuSeleccioble() {
-                return "PRECIO DESC";
+                return "Precio DESC";
             }
         });
 
         DataTable<Vehiculo> dataTable = new DataTable<>();
 
-        dataTable.execute("Catalogo Vehiculos", filtros, ordenado, concecionaria.getVehiculos().stream().toList());
+        dataTable.execute("Catálogo Vehículos", filtros, ordenado, concecionaria.getVehiculos().stream().toList());
     }
 
     @Override
     public String tituloMenuSeleccioble() {
-        return "Mostrar Catalogo";
+        return "Mostrar Cátalogo";
     }
 }
