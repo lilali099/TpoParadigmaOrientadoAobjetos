@@ -1,6 +1,6 @@
 package Utils;
 
-import Classes.Concecionaria;
+import Domain.Concecionaria;
 
 import java.util.List;
 import java.util.Scanner;

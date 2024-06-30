@@ -1,7 +1,7 @@
-package Menus;
+package UseCases;
 
-import Classes.Concecionaria;
-import Classes.Venta;
+import Domain.Concecionaria;
+import Domain.Venta;
 import Utils.IOpcionMenuSeleccionable;
 
 public class GenerarVentasMenu implements IOpcionMenuSeleccionable {

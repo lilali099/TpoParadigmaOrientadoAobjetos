@@ -1,6 +1,6 @@
 package Utils;
 
-import Classes.Concecionaria;
+import Domain.Concecionaria;
 
 public interface IOpcionMenuSeleccionable {
     void execute(Concecionaria concecionaria);

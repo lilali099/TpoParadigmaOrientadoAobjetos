@@ -1,4 +1,4 @@
-package Classes;
+package Domain;
 
 import java.util.HashSet;
 

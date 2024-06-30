@@ -1,21 +1,22 @@
-package Menus;
+package UseCases;
 
-import Classes.*;
+import Domain.Auto;
+import Domain.Concecionaria;
+import Domain.Moto;
+import Domain.Venta;
 import Utils.IOpcionMenuSeleccionable;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
-public class MostrarCatalogoMenu implements IOpcionMenuSeleccionable {
+public class MostarVentasMenu implements IOpcionMenuSeleccionable {
+
     private enum Filtro {
-        TODOS, AUTOS, MOTOS
+        TODOS, AUTOS, MOTOS, ENTREGADOS
     }
 
     private enum Ordenamiento {
-        PRECIO_ASC, PRECIO_DESC
+        PRECIO_ASC, PRECIO_DESC, CLIENTE_ASC, CLIENTE_DESC
     }
 
     private Scanner lectura = new Scanner(System.in);
@@ -25,10 +26,10 @@ public class MostrarCatalogoMenu implements IOpcionMenuSeleccionable {
     @Override
     public void execute(Concecionaria concecionaria) {
         while (true) {
-            List<Vehiculo> vehiculos = aplicarFiltros(concecionaria.getVehiculos().stream().toList());
-            vehiculos = aplicarOrdenamiento(vehiculos);
+            List<Venta> ventasFiltradas = aplicarFiltros(concecionaria.getTransacciones().stream().toList());
+            ventasFiltradas = aplicarOrdenamiento(ventasFiltradas);
 
-            mostrarVehiculos(vehiculos);
+            mostrarVentas(ventasFiltradas);
 
             mostrarOpciones();
             String opcion = leerOpcion();
@@ -53,41 +54,49 @@ public class MostrarCatalogoMenu implements IOpcionMenuSeleccionable {
         }
     }
 
-    private List<Vehiculo> aplicarFiltros(List<Vehiculo> ventas) {
+    private List<Venta> aplicarFiltros(List<Venta> ventas) {
         switch (filtroActual) {
             case AUTOS:
-                return ventas.stream().filter(v -> v instanceof Auto).collect(Collectors.toList());
+                return ventas.stream().filter(v -> v.getVehiculo() instanceof Auto).collect(Collectors.toList());
             case MOTOS:
-                return ventas.stream().filter(v -> v instanceof Moto).collect(Collectors.toList());
+                return ventas.stream().filter(v -> v.getVehiculo() instanceof Moto).collect(Collectors.toList());
+            case ENTREGADOS:
+                return ventas.stream().filter(Venta::isEntregado).collect(Collectors.toList());
             case TODOS:
             default:
                 return new ArrayList<>(ventas);
         }
     }
 
-    private List<Vehiculo> aplicarOrdenamiento(List<Vehiculo> vehiculos) {
+    private List<Venta> aplicarOrdenamiento(List<Venta> ventas) {
         if (ordenamientoActual == null) {
-            return vehiculos;
+            return ventas;
         }
 
-        Comparator<Vehiculo> comparator = null;
+        Comparator<Venta> comparator = null;
         switch (ordenamientoActual) {
             case PRECIO_ASC:
-                comparator = Comparator.comparing(Vehiculo::getPrecio);
+                comparator = Comparator.comparing(Venta::getPrecioFinal);
                 break;
             case PRECIO_DESC:
-                comparator = Comparator.comparing(Vehiculo::getPrecio).reversed();
+                comparator = Comparator.comparing(Venta::getPrecioFinal).reversed();
+                break;
+            case CLIENTE_ASC:
+                comparator = Comparator.comparing(Venta::getComprador);
+                break;
+            case CLIENTE_DESC:
+                comparator = Comparator.comparing(Venta::getComprador).reversed();
                 break;
         }
 
-        return vehiculos.stream().sorted(comparator).collect(Collectors.toList());
+        return ventas.stream().sorted(comparator).collect(Collectors.toList());
     }
 
-    private void mostrarVehiculos(List<Vehiculo> vehiculos) {
+    private void mostrarVentas(List<Venta> ventas) {
         System.out.println(GetTitulo());
         int contador = 1;
-        for(Vehiculo v : vehiculos) {
-            mostrarVehiculo(v, contador);
+        for(Venta v : ventas) {
+            mostrarVenta(v, contador);
             contador++;
         }
     }
@@ -118,6 +127,9 @@ public class MostrarCatalogoMenu implements IOpcionMenuSeleccionable {
                 case 2:
                     filtroActual = Filtro.MOTOS;
                     break;
+                case 3:
+                    filtroActual = Filtro.ENTREGADOS;
+                    break;
                 case 4:
                     break;
                 default:
@@ -146,6 +158,12 @@ public class MostrarCatalogoMenu implements IOpcionMenuSeleccionable {
                 case 2:
                     ordenamientoActual = Ordenamiento.PRECIO_DESC;
                     break;
+                case 3:
+                    ordenamientoActual = Ordenamiento.CLIENTE_ASC;
+                    break;
+                case 4:
+                    ordenamientoActual = Ordenamiento.CLIENTE_DESC;
+                    break;
                 default:
                     System.out.println(datoInvalido(opcion));
                     break;
@@ -173,8 +191,8 @@ public class MostrarCatalogoMenu implements IOpcionMenuSeleccionable {
         return lectura.nextLine();
     }
 
-    private void mostrarVehiculo(Vehiculo vehiculo, int numero) {
-        // Implementa la lógica para mostrar el vehiculo de forma resumida
+    private void mostrarVenta(Venta venta, int numero) {
+        // Implementa la lógica para mostrar la venta de forma resumida
     }
 
     private static String datoInvalido(String value) {

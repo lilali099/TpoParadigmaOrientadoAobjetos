@@ -1,8 +1,8 @@
-import Classes.*;
-import Menus.AñadirNuevoVehiculoMenu;
-import Menus.GenerarVentasMenu;
-import Menus.MostarVentasMenu;
-import Menus.MostrarCatalogoMenu;
+import Domain.*;
+import UseCases.AñadirNuevoVehiculoMenu;
+import UseCases.GenerarVentasMenu;
+import UseCases.MostarVentasMenu;
+import UseCases.MostrarCatalogoMenu;
 import Utils.IOpcionMenuSeleccionable;
 import Utils.SelectMenu;
 

@@ -1,7 +1,7 @@
 package UseCases;
 
-import Classes.Concecionaria;
-import Classes.Auto;
+import Domain.Concecionaria;
+import Domain.Auto;
 import Utils.IOpcionMenuSeleccionable;
 
 public class CrearAuto implements IOpcionMenuSeleccionable {

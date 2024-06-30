@@ -1,11 +1,8 @@
 package UseCases;
 
-import Classes.Concecionaria;
-import Classes.Moto;
-import Classes.Vehiculo;
+import Domain.Concecionaria;
+import Domain.Moto;
 import Utils.IOpcionMenuSeleccionable;
-
-import java.util.HashSet;
 
 public class CrearMoto implements IOpcionMenuSeleccionable {
 

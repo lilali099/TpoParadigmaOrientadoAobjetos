@@ -1,4 +1,4 @@
-package Menus;
+package UseCases;
 
 public class MostarInformeVentas {
 }

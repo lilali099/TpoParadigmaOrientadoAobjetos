@@ -1,4 +1,4 @@
-package Classes;
+package Domain;
 
 public class Venta {
     public boolean entregado;

@@ -1,8 +1,6 @@
-package Menus;
+package UseCases;
 
-import Classes.Concecionaria;
-import UseCases.CrearAuto;
-import UseCases.CrearMoto;
+import Domain.Concecionaria;
 import Utils.IOpcionMenuSeleccionable;
 import Utils.SelectMenu;
 

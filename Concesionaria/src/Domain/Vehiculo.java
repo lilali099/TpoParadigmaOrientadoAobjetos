@@ -1,4 +1,4 @@
-package Classes;
+package Domain;
 
 public abstract class Vehiculo {
     String color;
