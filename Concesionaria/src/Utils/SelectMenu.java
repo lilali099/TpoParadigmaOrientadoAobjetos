@@ -1,14 +1,28 @@
 package Utils;
 
+import Classes.Concecionaria;
+
 import java.util.List;
 import java.util.Scanner;
 
-public class OpcionMenu {
-    public static void EjecutarMenu(String menuTitulo, List<IOpcionMenuSeleccionable> menuSeleccionableList){
-        Scanner lectura = new Scanner(System.in);
+public class SelectMenu {
+    public static void generarMenu(
+            Concecionaria concecionaria,
+            String menuTitulo,
+            List<IOpcionMenuSeleccionable> menuSeleccionableList){
+        generarMenu(concecionaria, menuTitulo, menuSeleccionableList, true);
+    }
+
+    public static void generarMenu(
+            Concecionaria concecionaria,
+            String menuTitulo,
+            List<IOpcionMenuSeleccionable> menuSeleccionableList,
+            boolean botonSalir)
+    {
         if (menuSeleccionableList.isEmpty()){
             return;
         }
+        Scanner lectura = new Scanner(System.in);
         //se mantiene como texto para luego convertirlo a numero para poder mostrarlo en caso de que se equivoque
         String opcion = "";
         while (true){
@@ -17,8 +31,12 @@ public class OpcionMenu {
                 System.out.println("Selecciona una opción: ");
                 int menuOpcion = 1;
                 for (IOpcionMenuSeleccionable menuSeleccionable : menuSeleccionableList) {
-                    System.out.println(menuOpcion + ")" + menuSeleccionable.TituloMenuSeleccioble());
+                    System.out.println(menuOpcion + ")" + menuSeleccionable.tituloMenuSeleccioble());
                     menuOpcion++;
+                }
+
+                if (botonSalir){
+                    System.out.println(menuOpcion + ")Volver");
                 }
 
                 System.out.println("Ingrese el numero de la opción: ");
@@ -27,7 +45,10 @@ public class OpcionMenu {
                 int numero = Integer.parseInt(opcion);
 
                 if (numero <= menuSeleccionableList.size()){
-                    menuSeleccionableList.get(numero - 1).Execute();
+                    menuSeleccionableList.get(numero - 1).execute(concecionaria);
+                    break;
+                }
+                else if (numero == menuSeleccionableList.size() + 1 && botonSalir){
                     break;
                 }
                 else{

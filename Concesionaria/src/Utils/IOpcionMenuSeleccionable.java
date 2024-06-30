@@ -1,6 +1,8 @@
 package Utils;
 
+import Classes.Concecionaria;
+
 public interface IOpcionMenuSeleccionable {
-    void Execute();
-    String TituloMenuSeleccioble();
+    void execute(Concecionaria concecionaria);
+    String tituloMenuSeleccioble();
 }

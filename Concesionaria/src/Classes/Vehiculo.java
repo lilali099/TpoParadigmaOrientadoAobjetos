@@ -1,14 +1,13 @@
 package Classes;
 
 public abstract class Vehiculo {
-    private String color;
-    private String marca;
-    private String modelo;
-    private int anio;
-    private String patente;
-    private int km;
-    private double precio;
-    private double precioFinal;
+    String color;
+    String marca;
+    String modelo;
+    int anio;
+    String patente;
+    int km;
+    double precio;
 
     /*
     public Vehiculo(String color, String marca, String modelo, int anio, String patente, int km, double precio) {
@@ -43,10 +42,5 @@ public abstract class Vehiculo {
     public double getPrecio() {
         return precio;
     }
-
-    public double getPrecioFinal() {
-        return precioFinal;
-    }
-
 }
 
