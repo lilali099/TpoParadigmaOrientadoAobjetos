@@ -6,6 +6,15 @@ public class Auto extends Vehiculo{
     private int chasis;
     private int cantidadDePuertas;
 
+    public void setcantidadDePuertas(int cantidadDePuertas) {
+        this.cantidadDePuertas = cantidadDePuertas;
+    }
+
+    public void setChasis(int chasis) {
+        this.chasis = chasis;
+    }
+
+
     protected Auto(){
 
     };
@@ -30,9 +39,7 @@ public class Auto extends Vehiculo{
         if (chasis == null) {
             return null;
         }
-        auto.chasis = chasis;
-
-
+        auto.setChasis(chasis);
 
         //completar con todas las propiedades
 
@@ -40,7 +47,7 @@ public class Auto extends Vehiculo{
         if (cantidadDePuertas == null) {
             return null;
         }
-        auto.cantidadDePuertas = cantidadDePuertas;
+        auto.setcantidadDePuertas(cantidadDePuertas);
 
         String color = InputFile.obtenerDato("color", String.class);
         if (color == null) {
@@ -60,19 +67,46 @@ public class Auto extends Vehiculo{
         }
         auto.setModelo(modelo);
 
-        String patente = InputFile.obtenerDato("patent", String.class);
+        String patente = InputFile.obtenerDato("patente", String.class);
         if (patente == null) {
             return null;
         }
         auto.setPatente(patente);
 
+        Integer anio = InputFile.obtenerDato("año:", Integer.class);
+        if (anio == null) {
+            return null;
+        }
+        auto.setAnio(anio);
+
+        Integer km = InputFile.obtenerDato("kilometro:", Integer.class);
+        if (km == null) {
+            return null;
+        }
+        auto.setKm(km);
+
+        Integer precio = InputFile.obtenerDato("precio", Integer.class);
+        if (precio == null) {
+            return null;
+        }
+        auto.setPrecio(precio);
+
+
+
         return auto;
     }
 
 
-
-
-
-
-
+    @Override
+    public void mostrarDetalle() {
+        System.out.println ("Detalles del auto");
+        System.out.println ("Color: " +getColor());
+        System.out.println ("Marca: " +getMarca());
+        System.out.println ("Modelo: " +getModelo());
+        System.out.println ("Año: " + getAnio());
+        System.out.println ("Patente: " +getPatente());
+        System.out.println ("Kilometros: " +getKm());
+        System.out.println ("Precio: " +getPrecio());
+        System.out.println ("Cantidad de puertas: " +getCantidadDePuertas());
+    }
 }
