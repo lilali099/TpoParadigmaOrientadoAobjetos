@@ -13,14 +13,14 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class ObtenerVehiculo {
-    private final List<IOpcionFiltradoSeleccionable<Vehiculo>> filtros = new ArrayList<>(){};
-    private final List<IOpcionFiltradoSeleccionable<Vehiculo>> ordenado = new ArrayList<>(){};
-    private final Scanner lectura = new Scanner(System.in);
+    private static final List<IOpcionFiltradoSeleccionable<Vehiculo>> filtros = new ArrayList<>(){};
+    private static final List<IOpcionFiltradoSeleccionable<Vehiculo>> ordenado = new ArrayList<>(){};
+    private static final Scanner lectura = new Scanner(System.in);
 
-    private IOpcionFiltradoSeleccionable<Vehiculo> filtroActual = null;
-    private IOpcionFiltradoSeleccionable<Vehiculo> ordenamientoActual = null;
+    private static IOpcionFiltradoSeleccionable<Vehiculo> filtroActual = null;
+    private static IOpcionFiltradoSeleccionable<Vehiculo> ordenamientoActual = null;
 
-    public int execute(Concecionaria concecionaria) {
+    public static int execute(List<Vehiculo> vehiculosOriginal) {
         filtros.add(new IOpcionFiltradoSeleccionable<>() {
             @Override
             public List<Vehiculo> execute(List<Vehiculo> data) {
@@ -77,7 +77,7 @@ public class ObtenerVehiculo {
 
         while (true) {
             List<Vehiculo> vehiculos = new ArrayList<>(){};
-            vehiculos.addAll(concecionaria.getVehiculos());
+            vehiculos.addAll(vehiculosOriginal);
             if (filtroActual != null){
                 vehiculos = filtroActual.execute(vehiculos);
             }
@@ -109,7 +109,7 @@ public class ObtenerVehiculo {
         }
     }
 
-    private void mostrarVehiculos(List<Vehiculo> vehiculos) {
+    private static void mostrarVehiculos(List<Vehiculo> vehiculos) {
         System.out.println(GetTitulo());
         int contador = 1;
         for(Vehiculo v : vehiculos) {
@@ -118,14 +118,15 @@ public class ObtenerVehiculo {
         }
     }
 
-    private void mostrarOpciones() {
+    private static void mostrarOpciones() {
+        System.out.println("Selecciona una opción: ");
         System.out.println("1) " + (filtroActual == null ? "Filtrar" : "Reiniciar Filtro"));
         System.out.println("2) " + (ordenamientoActual == null ? "Ordenar" : "Reiniciar Ordenamiento"));
-        System.out.println("3) Mostrar Detalle");
+        System.out.println("3) Seleccionar Vehiculo");
         System.out.println("4) Volver");
     }
 
-    private void gestionarFiltros() {
+    private static void gestionarFiltros() {
         if (filtroActual != null) {
             filtroActual = null;
         } else {
@@ -149,7 +150,7 @@ public class ObtenerVehiculo {
         }
     }
 
-    private void gestionarOrdenamiento() {
+    private static void gestionarOrdenamiento() {
         if (ordenamientoActual != null) {
             ordenamientoActual = null;
         } else {
@@ -173,8 +174,10 @@ public class ObtenerVehiculo {
         }
     }
 
-    private int obtenerVehiculo(List<Vehiculo> vehiculos) {
-        String opcion = leerOpcion();
+    private static int obtenerVehiculo(List<Vehiculo> vehiculos) {
+        System.out.print("Ingrese el numero del Vehiculo: ");
+
+        String opcion = lectura.nextLine();
         int numero = Integer.parseInt(opcion);
 
         if (0 < numero && numero <= vehiculos.size()) {
@@ -184,7 +187,7 @@ public class ObtenerVehiculo {
         return -1;
     }
 
-    private String GetTitulo() {
+    private static String GetTitulo() {
         String titulo = "Menú Ventas";
         if (filtroActual != null) {
             titulo += ", " + filtroActual.tituloMenuSeleccioble();
@@ -195,12 +198,12 @@ public class ObtenerVehiculo {
         return titulo;
     }
 
-    private String leerOpcion() {
+    private static String leerOpcion() {
         System.out.print("Ingrese el número de la opción: ");
         return lectura.nextLine();
     }
 
-    private void mostrarVehiculo(Vehiculo vehiculo, int contador) {
+    private static void mostrarVehiculo(Vehiculo vehiculo, int contador) {
         System.out.println(contador + ") Tipo: "+(vehiculo instanceof Auto? "Auto": "Moto")+", Marca: "+ vehiculo.getMarca() +", Modelo: "+ vehiculo.getModelo() +", Año: "+ vehiculo.getAnio() +", Color: "+ vehiculo.getColor());
 
     }

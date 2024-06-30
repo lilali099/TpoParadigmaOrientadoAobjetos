@@ -25,6 +25,12 @@ public class DataTable<T extends IDataTableRecord> {
         this.filtros.addAll(filtros);
         this.ordenado.addAll(ordenado);
 
+        if (dataOriginal.isEmpty()){
+            System.out.println(GetTitulo());
+            System.out.println("No hay datos Disponibles");
+            return;
+        }
+
         while (true) {
             List<T> data = new ArrayList<>(){};
             data.addAll(dataOriginal);
