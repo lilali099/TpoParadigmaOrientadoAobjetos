@@ -29,7 +29,7 @@ public class InputFile {
             if (primeraVez) {
                 primeraVez = false;
             } else {
-                System.out.println("Ingrese cancelar para finalizar la operación");
+                System.out.println("Ingrese \"cancelar\" para finalizar la operación");
             }
             System.out.println("Ingrese " + nombrePropiedad + ":");
             String input = lectura.nextLine();
@@ -52,7 +52,7 @@ public class InputFile {
             if (primeraVez) {
                 primeraVez = false;
             } else {
-                System.out.println("Ingrese cancelar para finalizar la operación");
+                System.out.println("Ingrese \"cancelar\" para finalizar la operación");
             }
             System.out.println("Ingrese " + nombrePropiedad + ":");
             String input = lectura.nextLine();

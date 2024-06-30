@@ -29,7 +29,7 @@ public class DataTable<T extends IDataTableRecord> {
         primeraVez = true;
 
         if (dataOriginal.isEmpty()){
-            System.out.println(GetTitulo());
+            System.out.println(getTitulo());
             System.out.println("No hay datos Disponibles");
             return;
         }
@@ -76,7 +76,7 @@ public class DataTable<T extends IDataTableRecord> {
     }
 
     private void mostrarData(List<T> data) {
-        System.out.println(GetTitulo());
+        System.out.println(getTitulo());
         int contador = 1;
         for(T d : data) {
             mostrarVenta(d, contador);
@@ -106,7 +106,7 @@ public class DataTable<T extends IDataTableRecord> {
             int contador = 1;
             for(IOpcionFiltradoSeleccionable<T> x : opciones){
                 System.out.println(contador + ") "+ x.tituloMenuSeleccioble());
-                contador++;
+                contador = contador + 1;
             }
 
             System.out.println(contador + ") Volver");
@@ -155,7 +155,7 @@ public class DataTable<T extends IDataTableRecord> {
         }
     }
 
-    private String GetTitulo() {
+    private String getTitulo() {
         String titulo = this.titulo;
         if (filtroActual != null) {
             titulo += ", " + filtroActual.tituloMenuSeleccioble();
@@ -170,7 +170,7 @@ public class DataTable<T extends IDataTableRecord> {
         if (primeraVez) {
             primeraVez = false;
         } else {
-            System.out.println("Ingrese cancelar para finalizar la operación");
+            System.out.println("Ingrese \"cancelar\" para finalizar la operación");
         }
         System.out.print("Ingrese el número de la opción: ");
         return lectura.nextLine();

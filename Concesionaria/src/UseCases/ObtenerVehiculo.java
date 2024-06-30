@@ -18,6 +18,7 @@ public class ObtenerVehiculo {
 
     private static IOpcionFiltradoSeleccionable<Vehiculo> filtroActual = null;
     private static IOpcionFiltradoSeleccionable<Vehiculo> ordenamientoActual = null;
+    private static boolean primeraVez = false;
 
     public static int execute(List<Vehiculo> vehiculosOriginal) {
         filtros.add(new IOpcionFiltradoSeleccionable<>() {
@@ -74,6 +75,8 @@ public class ObtenerVehiculo {
             }
         });
 
+        primeraVez = true;
+
         while (true) {
             List<Vehiculo> vehiculos = new ArrayList<>(){};
             vehiculos.addAll(vehiculosOriginal);
@@ -115,7 +118,7 @@ public class ObtenerVehiculo {
     }
 
     private static void mostrarVehiculos(List<Vehiculo> vehiculos) {
-        System.out.println(GetTitulo());
+        System.out.println(getTitulo());
         int contador = 1;
         for(Vehiculo v : vehiculos) {
             mostrarVehiculo(v, contador);
@@ -204,7 +207,7 @@ public class ObtenerVehiculo {
         return -1;
     }
 
-    private static String GetTitulo() {
+    private static String getTitulo() {
         String titulo = "Menú Ventas";
         if (filtroActual != null) {
             titulo += ", " + filtroActual.tituloMenuSeleccioble();
@@ -216,6 +219,11 @@ public class ObtenerVehiculo {
     }
 
     private static String leerOpcion() {
+        if (primeraVez) {
+            primeraVez = false;
+        } else {
+            System.out.println("Ingrese \"cancelar\" para finalizar la operación");
+        }
         System.out.print("Ingrese el número de la opción: ");
         return lectura.nextLine();
     }

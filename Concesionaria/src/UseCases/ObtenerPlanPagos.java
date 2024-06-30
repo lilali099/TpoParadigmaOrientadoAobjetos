@@ -15,8 +15,10 @@ import java.util.stream.Collectors;
 
 public class ObtenerPlanPagos {
 
+    private static boolean primeraVez;
     public static Venta execute(Venta venta) {
         String opcion = "";
+        primeraVez = true;
         while (true) {
             List<IPlanPagos> planesPago = new ArrayList<>(){};
 
@@ -24,6 +26,8 @@ public class ObtenerPlanPagos {
             planesPago.add(new PlanAhorro());
             planesPago.add(new PlanMotoDeportiva());
             planesPago.add(new PlanSedan());
+
+            planesPago = planesPago.stream().filter(x -> x.condicion(venta)).toList();
 
             mostrarPlanes(planesPago);
 
@@ -63,6 +67,11 @@ public class ObtenerPlanPagos {
 
     private static String leerOpcion() {
         Scanner lectura = new Scanner(System.in);
+        if (primeraVez) {
+            primeraVez = false;
+        } else {
+            System.out.println("Ingrese \"cancelar\" para finalizar la operación");
+        }
         System.out.print("Ingrese el número de la opción: ");
         return lectura.nextLine();
     }
