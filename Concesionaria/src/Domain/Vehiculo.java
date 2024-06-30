@@ -1,13 +1,13 @@
 package Domain;
 
 public abstract class Vehiculo {
-    String color;
-    String marca;
-    String modelo;
-    int anio;
-    String patente;
-    int km;
-    double precio;
+    private String color;
+    private String marca;
+    private String modelo;
+    private int anio;
+    private String patente;
+    private int km;
+    private double precio;
 
     /*
     public Vehiculo(String color, String marca, String modelo, int anio, String patente, int km, double precio) {
@@ -41,6 +41,34 @@ public abstract class Vehiculo {
 
     public double getPrecio() {
         return precio;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public void setPatente(String patente) {
+        this.patente = patente;
+    }
+
+    public void setKm(int km) {
+        this.km = km;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 }
 
