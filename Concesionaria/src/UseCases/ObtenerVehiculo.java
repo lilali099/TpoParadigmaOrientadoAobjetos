@@ -88,6 +88,12 @@ public class ObtenerVehiculo {
 
             mostrarOpciones();
             String opcion = leerOpcion();
+
+            if (opcion.equalsIgnoreCase("cancelar")) {
+                System.out.println("Operación cancelada.");
+                return -1;
+            }
+
             int numero = Integer.parseInt(opcion);
 
             switch (numero) {
@@ -135,6 +141,12 @@ public class ObtenerVehiculo {
             System.out.println(contador + ") Volver");
 
             String opcion = leerOpcion();
+
+            if (opcion.equalsIgnoreCase("cancelar")) {
+                System.out.println("Operación cancelada.");
+                return;
+            }
+
             int numero = Integer.parseInt(opcion);
 
             if (0 < numero && numero <= filtros.size()) {
@@ -159,6 +171,12 @@ public class ObtenerVehiculo {
             System.out.println(contador + ") Volver");
 
             String opcion = leerOpcion();
+
+            if (opcion.equalsIgnoreCase("cancelar")) {
+                System.out.println("Operación cancelada.");
+                return;
+            }
+
             int numero = Integer.parseInt(opcion);
 
             if (0 < numero && numero <= ordenado.size()) {

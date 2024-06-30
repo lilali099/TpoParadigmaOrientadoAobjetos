@@ -10,17 +10,17 @@ import java.util.List;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Concecionaria concecionaria = new Concecionaria();
+        Concesionaria concesionaria = new Concesionaria();
 
         List<IOpcionMenuSeleccionable> opcionesMenuPrincipal = new LinkedList<>();
         opcionesMenuPrincipal.add(new AñadirNuevoVehiculoMenu());
         opcionesMenuPrincipal.add(new CrearVenta());
-        opcionesMenuPrincipal.add(new MostarVentasMenu());
+        opcionesMenuPrincipal.add(new MostrarVentasMenu());
         opcionesMenuPrincipal.add(new MostrarCatalogoMenu());
-        opcionesMenuPrincipal.add(new MostarInformeVentas());
+        opcionesMenuPrincipal.add(new MostrarInformeVentas());
         opcionesMenuPrincipal.add(new IOpcionMenuSeleccionable() {
             @Override
-            public void execute(Concecionaria concecionaria) {
+            public void execute(Concesionaria concesionaria) {
                 System.out.println("Gracias por Utilizar");
                 System.out.println("Programa Realizado por: ");
                 System.out.println("Ingresar Nombres");
@@ -34,7 +34,7 @@ public class Main {
         });
 
         while (true){
-            SelectMenu.generarMenu(concecionaria,"Menu Principal", opcionesMenuPrincipal, false);
+            SelectMenu.generarMenu(concesionaria,"Menu Principal", opcionesMenuPrincipal, false);
         }
     }
 

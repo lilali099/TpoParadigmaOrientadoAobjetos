@@ -14,6 +14,8 @@ public class DataTable<T extends IDataTableRecord> {
     private IOpcionFiltradoSeleccionable<T> ordenamientoActual = null;
     private String titulo;
 
+    private static boolean primeraVez;
+
     public void execute(
         String titulo,
         List<IOpcionFiltradoSeleccionable<T>> filtros,
@@ -24,6 +26,7 @@ public class DataTable<T extends IDataTableRecord> {
         this.titulo = titulo;
         this.filtros.addAll(filtros);
         this.ordenado.addAll(ordenado);
+        primeraVez = true;
 
         if (dataOriginal.isEmpty()){
             System.out.println(GetTitulo());
@@ -45,6 +48,12 @@ public class DataTable<T extends IDataTableRecord> {
 
             mostrarOpciones();
             String opcion = leerOpcion();
+
+            if (opcion.equalsIgnoreCase("cancelar")) {
+                System.out.println("Operación cancelada.");
+                break;
+            }
+
             int numero = Integer.parseInt(opcion);
 
             switch (numero) {
@@ -95,11 +104,20 @@ public class DataTable<T extends IDataTableRecord> {
             return null;
         } else {
             int contador = 1;
-            opciones.forEach(x -> System.out.println(contador + ") "+ x.tituloMenuSeleccioble()));
+            for(IOpcionFiltradoSeleccionable<T> x : opciones){
+                System.out.println(contador + ") "+ x.tituloMenuSeleccioble());
+                contador++;
+            }
 
             System.out.println(contador + ") Volver");
 
             String opcion = leerOpcion();
+
+            if (opcion.equalsIgnoreCase("cancelar")) {
+                System.out.println("Operación cancelada.");
+                return null;
+            }
+
             int numero = Integer.parseInt(opcion);
 
             if (0 < numero && numero <= opciones.size()) {
@@ -121,6 +139,12 @@ public class DataTable<T extends IDataTableRecord> {
 
     private static<T extends IDataTableRecord> void mostrarDetalle(List<T> data) {
         String opcion = leerOpcion();
+
+        if (opcion.equalsIgnoreCase("cancelar")) {
+            System.out.println("Operación cancelada.");
+            return;
+        }
+
         int numero = Integer.parseInt(opcion);
 
         if (0 < numero && numero <= data.size()) {
@@ -143,6 +167,11 @@ public class DataTable<T extends IDataTableRecord> {
     }
 
     private static String leerOpcion() {
+        if (primeraVez) {
+            primeraVez = false;
+        } else {
+            System.out.println("Ingrese cancelar para finalizar la operación");
+        }
         System.out.print("Ingrese el número de la opción: ");
         return lectura.nextLine();
     }

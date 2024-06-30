@@ -1,6 +1,6 @@
 package UseCases;
 
-import Domain.Concecionaria;
+import Domain.Concesionaria;
 import Utils.IOpcionMenuSeleccionable;
 import Utils.SelectMenu;
 
@@ -10,12 +10,12 @@ import java.util.List;
 public class AñadirNuevoVehiculoMenu implements IOpcionMenuSeleccionable {
 
     @Override
-    public void execute(Concecionaria concecionaria) {
+    public void execute(Concesionaria concesionaria) {
         List<IOpcionMenuSeleccionable> opcionesMenuVentas = new LinkedList<>();
         opcionesMenuVentas.add(new CrearAuto());
         opcionesMenuVentas.add(new CrearMoto());
 
-        SelectMenu.generarMenu(concecionaria,"Seleccionar Tipo de Vehículo", opcionesMenuVentas);
+        SelectMenu.generarMenu(concesionaria,"Seleccionar Tipo de Vehículo", opcionesMenuVentas);
     }
 
     @Override

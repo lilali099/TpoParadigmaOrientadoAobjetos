@@ -14,6 +14,8 @@ public class PlanSedan implements IPlanPagos {
         venta.setPrecioFinal(precioVehiculo);
         venta.setMetodoDePago("Plan Sedan");
 
+        venta.setEntregado(true);
+
         Integer[] cuotas = new Integer[19]; // 1 pago inicial + 18 cuotas
         cuotas[0] = (int) pagoInicial;
         int pagoMensual = (int) (restante / 18);
@@ -26,5 +28,10 @@ public class PlanSedan implements IPlanPagos {
     @Override
     public boolean condicion(Venta venta) {
         return venta.getVehiculo() instanceof Auto;
+    }
+
+    @Override
+    public String getName() {
+        return "Plan Sedan";
     }
 }

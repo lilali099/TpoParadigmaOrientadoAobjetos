@@ -8,9 +8,9 @@ import Utils.IOpcionMenuSeleccionable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class MostarVentasMenu implements IOpcionMenuSeleccionable {
+public class MostrarVentasMenu implements IOpcionMenuSeleccionable {
     @Override
-    public void execute(Concecionaria concecionaria) {
+    public void execute(Concesionaria concesionaria) {
         List<IOpcionFiltradoSeleccionable<Venta>> filtros = new ArrayList<>();
         List<IOpcionFiltradoSeleccionable<Venta>> ordenado = new ArrayList<>();
         filtros.add(new IOpcionFiltradoSeleccionable<Venta>() {
@@ -111,7 +111,7 @@ public class MostarVentasMenu implements IOpcionMenuSeleccionable {
 
         DataTable<Venta> dataTable = new DataTable<>();
 
-        dataTable.execute("Menú Ventas", filtros, ordenado, concecionaria.getVentas().stream().toList());
+        dataTable.execute("Menú Ventas", filtros, ordenado, concesionaria.getVentas().stream().toList());
     }
     @Override
     public String tituloMenuSeleccioble() {

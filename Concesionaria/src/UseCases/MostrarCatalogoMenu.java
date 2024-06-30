@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class MostrarCatalogoMenu implements IOpcionMenuSeleccionable {
     @Override
-    public void execute(Concecionaria concecionaria) {
+    public void execute(Concesionaria concesionaria) {
         List<IOpcionFiltradoSeleccionable<Vehiculo>> filtros = new ArrayList<>(){};
         List<IOpcionFiltradoSeleccionable<Vehiculo>> ordenado = new ArrayList<>(){};
         filtros.add(new IOpcionFiltradoSeleccionable<>() {
@@ -71,7 +71,7 @@ public class MostrarCatalogoMenu implements IOpcionMenuSeleccionable {
 
         DataTable<Vehiculo> dataTable = new DataTable<>();
 
-        dataTable.execute("Catálogo Vehículos", filtros, ordenado, concecionaria.getVehiculos().stream().toList());
+        dataTable.execute("Catálogo Vehículos", filtros, ordenado, concesionaria.getVehiculos().stream().toList());
     }
 
     @Override

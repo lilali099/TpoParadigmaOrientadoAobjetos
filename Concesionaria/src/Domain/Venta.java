@@ -1,9 +1,11 @@
 package Domain;
 
+import UseCases.ObtenerPlanPagos;
 import UseCases.ObtenerVehiculo;
 import Utils.IDataTableRecord;
 import Utils.InputFile;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Venta implements IDataTableRecord {
@@ -73,6 +75,10 @@ public class Venta implements IDataTableRecord {
         return planCuotas;
     }
 
+    public void setEntregado(boolean entregado) {
+        this.entregado = entregado;
+    }
+
     public static Venta create(List<Vehiculo> vehiculoList){
         Venta venta = new Venta();
 
@@ -92,6 +98,7 @@ public class Venta implements IDataTableRecord {
         }
         venta.setVendedor(vendedor);
 
+        venta = ObtenerPlanPagos.execute(venta);
         return venta;
     }
 
@@ -104,13 +111,10 @@ public class Venta implements IDataTableRecord {
         System.out.println ("Detalles de la venta");
         System.out.println("Método de pago: "+getMetodoDePago());
         System.out.println("Precio final:"+getPrecioFinal());
-        System.out.println("Cuotas:" +getPlanCuotas());
+        System.out.println("Cuotas:" + Arrays.toString(getPlanCuotas()));
         System.out.println("Comprador: "+getComprador());
         System.out.println("Vendedor: "+getVendedor());
         getVehiculo().mostrarDetalle();
-
-
-
     }
 }
 

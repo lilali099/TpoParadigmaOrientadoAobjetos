@@ -1,20 +1,20 @@
 package Utils;
 
-import Domain.Concecionaria;
+import Domain.Concesionaria;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class SelectMenu {
     public static void generarMenu(
-            Concecionaria concecionaria,
+            Concesionaria concesionaria,
             String menuTitulo,
             List<IOpcionMenuSeleccionable> menuSeleccionableList){
-        generarMenu(concecionaria, menuTitulo, menuSeleccionableList, true);
+        generarMenu(concesionaria, menuTitulo, menuSeleccionableList, true);
     }
 
     public static void generarMenu(
-            Concecionaria concecionaria,
+            Concesionaria concesionaria,
             String menuTitulo,
             List<IOpcionMenuSeleccionable> menuSeleccionableList,
             boolean botonSalir)
@@ -45,7 +45,7 @@ public class SelectMenu {
                 int numero = Integer.parseInt(opcion);
 
                 if (numero > 0 && numero <= menuSeleccionableList.size()){
-                    menuSeleccionableList.get(numero - 1).execute(concecionaria);
+                    menuSeleccionableList.get(numero - 1).execute(concesionaria);
                     break;
                 }
                 else if (numero == menuSeleccionableList.size() + 1 && botonSalir){
