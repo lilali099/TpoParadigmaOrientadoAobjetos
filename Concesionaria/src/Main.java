@@ -23,7 +23,10 @@ public class Main {
             public void execute(Concesionaria concesionaria) {
                 System.out.println("Gracias por Utilizar");
                 System.out.println("Programa Realizado por: ");
-                System.out.println("Ingresar Nombres");
+                System.out.println("Bruno Gustavo 1172421");
+                System.out.println("Fernandez Jimena legajo");
+                System.out.println("Irigoyen, Ochoa Paloma 1171277");
+                System.out.println("Roubineau Augusto 1176007");
                 System.exit(0);
             }
 
