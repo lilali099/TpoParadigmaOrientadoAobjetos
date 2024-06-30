@@ -1,16 +1,19 @@
 package Classes;
 
-import Utils.IInputFile;
+import Utils.InputFile;
 
 public class Auto extends Vehiculo{
     private int chasis;
     private int cantidadDePuertas;
 
+    protected Auto(){
 
+    };
+    /*
     public Auto(String color, String marca, String modelo, int anio, String patente, int km, double precio, int cantidadDePuertas) {
         super(color, marca, modelo, anio, patente, km, precio);
         this.cantidadDePuertas= cantidadDePuertas;
-    }
+    }*/
 
     public int getCantidadDePuertas() {
         return cantidadDePuertas;
@@ -20,11 +23,17 @@ public class Auto extends Vehiculo{
         this.cantidadDePuertas = cantidadDePuertas;
     }
 
-    /*public static Auto create(){
+    public static Auto create(){
         Auto auto = new Auto();
 
-        auto.chasis = IInputFile.ObtenerNumero("Ingrese su chasis:");
+        Integer chasis = InputFile.obtenerDato("chasis:", Integer.class);
+        if (chasis == null) {
+            return null;
+        }
+        auto.chasis = chasis;
+
+        //completar con todas las propiedades
 
         return auto;
-    }*/
+    }
 }

@@ -1,24 +1,28 @@
 import Classes.Auto;
 import Classes.Moto;
-import Utils.IInputFile;
+import Classes.Transaccion;
+import Classes.Vehiculo;
+import Utils.IOpcionMenuSeleccionable;
+import Utils.InputFile;
+import Utils.OpcionMenu;
+
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //autos
-        Auto auto1= new Auto("azul", "Toyota","Cross", 2023, "j1234k",10000, 35000000, 5);
-        Moto moto1 = new Moto("beige", "Yamaha","FZ",2017,"S9876B",27550,2000000,250);
+        HashSet<Vehiculo> vehiculos = new HashSet<>();
+        HashSet<Transaccion> transacciones = new HashSet<>();
 
 
-        var data = IInputFile.obtenerDato("hola", String.class);
+        while (true){
+            System.out.println("Menu Principal");
+            break;
 
-        System.out.println(data);
-
-
-        var data2 = IInputFile.obtenerDato("hola", Integer.class);
-
-        System.out.println(data2);
+        }
     }
 
 }
