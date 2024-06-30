@@ -1,8 +1,7 @@
-package Domain.PlanesDePago.;
+package Domain.PlanesDePago;
 
 import Domain.Auto;
 import Domain.IPlanPagos;
-import Domain.Moto;
 import Domain.Venta;
 
 public class PlanSedan implements IPlanPagos {
