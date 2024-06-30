@@ -187,7 +187,7 @@ public class ObtenerVehiculo {
         return -1;
     }
 
-    private String GetTitulo() {
+    private static String GetTitulo() {
         String titulo = "Menú Ventas";
         if (filtroActual != null) {
             titulo += ", " + filtroActual.tituloMenuSeleccioble();
@@ -198,12 +198,12 @@ public class ObtenerVehiculo {
         return titulo;
     }
 
-    private String leerOpcion() {
+    private static String leerOpcion() {
         System.out.print("Ingrese el número de la opción: ");
         return lectura.nextLine();
     }
 
-    private void mostrarVehiculo(Vehiculo vehiculo, int contador) {
+    private static void mostrarVehiculo(Vehiculo vehiculo, int contador) {
         System.out.println(contador + ") Tipo: "+(vehiculo instanceof Auto? "Auto": "Moto")+", Marca: "+ vehiculo.getMarca() +", Modelo: "+ vehiculo.getModelo() +", Año: "+ vehiculo.getAnio() +", Color: "+ vehiculo.getColor());
 
     }
