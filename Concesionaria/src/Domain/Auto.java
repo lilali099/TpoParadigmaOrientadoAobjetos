@@ -43,49 +43,49 @@ public class Auto extends Vehiculo{
 
         //completar con todas las propiedades
 
-        Integer cantidadDePuertas = InputFile.obtenerDato("cantidad de puertas:", Integer.class);
+        Integer cantidadDePuertas = InputFile.obtenerDato("Ingrese la cantidad de puertas", Integer.class);
         if (cantidadDePuertas == null) {
             return null;
         }
         auto.setcantidadDePuertas(cantidadDePuertas);
 
-        String color = InputFile.obtenerDato("color", String.class);
+        String color = InputFile.obtenerDato("Ingrese el color", String.class);
         if (color == null) {
             return null;
         }
-        auto.setColor(color);;
+        auto.setColor(color);
 
-        String marca  = InputFile.obtenerDato("marca", String.class);
+        String marca  = InputFile.obtenerDato("Ingrese la marca", String.class);
         if (marca == null) {
             return null;
         }
         auto.setMarca(marca);
 
-        String modelo = InputFile.obtenerDato("modelo", String.class);
+        String modelo = InputFile.obtenerDato("Ingrese el modelo", String.class);
         if (modelo == null) {
             return null;
         }
         auto.setModelo(modelo);
 
-        String patente = InputFile.obtenerDato("patente", String.class);
+        String patente = InputFile.obtenerDato("Ingrese la patente", String.class);
         if (patente == null) {
             return null;
         }
         auto.setPatente(patente);
 
-        Integer anio = InputFile.obtenerDato("año:", Integer.class);
+        Integer anio = InputFile.obtenerDato("Ingrese el año", Integer.class);
         if (anio == null) {
             return null;
         }
         auto.setAnio(anio);
 
-        Integer km = InputFile.obtenerDato("kilometro:", Integer.class);
+        Integer km = InputFile.obtenerDato("Ingrese el kilometraje", Integer.class);
         if (km == null) {
             return null;
         }
         auto.setKm(km);
 
-        Integer precio = InputFile.obtenerDato("precio", Integer.class);
+        Double precio = InputFile.obtenerDato("Ingrese el precio", Double.class);
         if (precio == null) {
             return null;
         }

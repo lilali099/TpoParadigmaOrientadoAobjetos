@@ -27,7 +27,7 @@ public class Moto extends Vehiculo{
         if (anio == null) {
             return null;
         }
-        moto.anio = anio;
+//        moto.anio = anio;
 
         //completar con todas las propiedades
 
