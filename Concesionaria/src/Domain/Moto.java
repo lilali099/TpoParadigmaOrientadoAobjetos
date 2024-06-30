@@ -34,43 +34,43 @@ public class Moto extends Vehiculo{
         String tipoMoto = InputFile.obtenerDatoString("Tipo de moto");
         if (tipoMoto == null) {
             return null;
-        };
+        }
         moto.setTipoMoto(tipoMoto);
 
         Integer cilindrada = InputFile.obtenerDatoInteger("Cilindrada de la moto");
         if (cilindrada == null) {
             return null;
-        };
+        }
         moto.setCilindrada(cilindrada);
 
         String color = InputFile.obtenerDatoString("Color");
         if (color == null) {
             return null;
-        };
+        }
         moto.setColor(color);
 
         String marca  = InputFile.obtenerDatoString("Marca");
         if (marca == null) {
             return null;
-        };
+        }
         moto.setMarca(marca);
 
         String modelo = InputFile.obtenerDatoString("Modelo");
         if (modelo == null) {
             return null;
-        };
+        }
         moto.setModelo(modelo);
 
         String patente = InputFile.obtenerDatoString("Patente");
         if (patente == null) {
             return null;
-        };
+        }
         moto.setPatente(patente);
 
         Integer km = InputFile.obtenerDatoInteger("Kilometraje");
         if (km == null) {
             return null;
-        };
+        }
         moto.setKm(km);
 
         Double precio = InputFile.obtenerDatoDouble("Precio");

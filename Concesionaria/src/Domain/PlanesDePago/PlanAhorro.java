@@ -11,7 +11,7 @@ public class PlanAhorro implements IPlanPagos {
         double restante = precioVehiculo - pagoInicial;
 
         venta.setPrecioFinal(precioVehiculo);
-        venta.setMetodoDePago("Plan Ahorro");
+        venta.setMetodoDePago(getName());
 
         Integer[] cuotas = new Integer[65]; // 1 pago inicial + 64 cuotas
         cuotas[0] = (int) pagoInicial;
@@ -25,5 +25,10 @@ public class PlanAhorro implements IPlanPagos {
     @Override
     public boolean condicion(Venta venta) {
         return true;
+    }
+
+    @Override
+    public String getName() {
+        return "Plan Ahorro";
     }
 }

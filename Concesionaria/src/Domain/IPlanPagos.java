@@ -4,4 +4,5 @@ package Domain;
 public interface IPlanPagos {
     void ejecutarPlanPagos(Venta venta);
     boolean condicion(Venta venta);
+    String getName();
 }

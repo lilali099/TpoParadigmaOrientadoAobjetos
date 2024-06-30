@@ -8,14 +8,19 @@ public class PagoContado implements IPlanPagos {
     public void ejecutarPlanPagos(Venta venta) {
         double precioFinal = venta.getVehiculo().getPrecio();
         venta.setPrecioFinal(precioFinal);
-        venta.setMetodoDePago("Pago al Contado");
-
+        venta.setMetodoDePago(getName());
+        venta.setEntregado(true);
         venta.setPlanCuotas(new Integer[]{(int) precioFinal});
     }
 
     @Override
     public boolean condicion(Venta venta) {
         return true;
+    }
+
+    @Override
+    public String getName() {
+        return "Pago al Contado";
     }
 }
 
