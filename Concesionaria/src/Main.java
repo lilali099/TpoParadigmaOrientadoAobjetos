@@ -1,8 +1,5 @@
 import Domain.*;
-import UseCases.AñadirNuevoVehiculoMenu;
-import UseCases.GenerarVentasMenu;
-import UseCases.MostarVentasMenu;
-import UseCases.MostrarCatalogoMenu;
+import UseCases.*;
 import Utils.IOpcionMenuSeleccionable;
 import Utils.SelectMenu;
 
@@ -20,6 +17,7 @@ public class Main {
         opcionesMenuPrincipal.add(new GenerarVentasMenu());
         opcionesMenuPrincipal.add(new MostarVentasMenu());
         opcionesMenuPrincipal.add(new MostrarCatalogoMenu());
+        opcionesMenuPrincipal.add(new MostarInformeVentas());
         opcionesMenuPrincipal.add(new IOpcionMenuSeleccionable() {
             @Override
             public void execute(Concecionaria concecionaria) {

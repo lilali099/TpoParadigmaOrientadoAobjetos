@@ -99,8 +99,7 @@ public class ObtenerVehiculo {
                     gestionarOrdenamiento();
                     break;
                 case 3:
-                    mostrarDetalle(vehiculos);
-                    break;
+                    return obtenerVehiculo(vehiculos);
                 case 4:
                     return -1; // Salir
                 default:
@@ -174,16 +173,15 @@ public class ObtenerVehiculo {
         }
     }
 
-    private void mostrarDetalle(List<Vehiculo> vehiculos) {
+    private int obtenerVehiculo(List<Vehiculo> vehiculos) {
         String opcion = leerOpcion();
         int numero = Integer.parseInt(opcion);
 
         if (0 < numero && numero <= vehiculos.size()) {
-            vehiculos.get(numero-1).mostrarDetalle();
+            return numero-1;
         }
-        else{
-            System.out.println(datoInvalido(opcion));
-        }
+        System.out.println(datoInvalido(opcion));
+        return -1;
     }
 
     private String GetTitulo() {
@@ -204,7 +202,6 @@ public class ObtenerVehiculo {
 
     private void mostrarVehiculo(Vehiculo vehiculo, int contador) {
         System.out.println(contador + ") Propiedades importantes");
-        // Implementa la lógica para mostrar el vehiculo de forma resumida
     }
 
     private static String datoInvalido(String value) {
