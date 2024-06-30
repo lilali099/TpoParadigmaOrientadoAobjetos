@@ -30,55 +30,55 @@ public class Auto extends Vehiculo{
     public static Auto create(){
         Auto auto = new Auto();
 
-        Integer chasis = InputFile.obtenerDato("chasis", Integer.class);
+        Integer chasis = InputFile.obtenerDato("el chasis", Integer.class);
         if (chasis == null) {
             return null;
         }
         auto.setChasis(chasis);
 
-        Integer cantidadDePuertas = InputFile.obtenerDato("cantidad de puertas", Integer.class);
+        Integer cantidadDePuertas = InputFile.obtenerDato("la cantidad de puertas", Integer.class);
         if (cantidadDePuertas == null) {
             return null;
         }
         auto.setCantidadDePuertas(cantidadDePuertas);
 
-        String color = InputFile.obtenerDato("Ingrese el color", String.class);
+        String color = InputFile.obtenerDato("el color", String.class);
         if (color == null) {
             return null;
         }
         auto.setColor(color);
 
-        String marca  = InputFile.obtenerDato("Ingrese la marca", String.class);
+        String marca  = InputFile.obtenerDato("la marca", String.class);
         if (marca == null) {
             return null;
         }
         auto.setMarca(marca);
 
-        String modelo = InputFile.obtenerDato("Ingrese el modelo", String.class);
+        String modelo = InputFile.obtenerDato("el modelo", String.class);
         if (modelo == null) {
             return null;
         }
         auto.setModelo(modelo);
 
-        String patente = InputFile.obtenerDato("Ingrese la patente", String.class);
+        String patente = InputFile.obtenerDato("la patente", String.class);
         if (patente == null) {
             return null;
         }
         auto.setPatente(patente);
 
-        Integer anio = InputFile.obtenerDato("Ingrese el año", Integer.class);
+        Integer anio = InputFile.obtenerDato("el año", Integer.class);
         if (anio == null) {
             return null;
         }
         auto.setAnio(anio);
 
-        Integer km = InputFile.obtenerDato("Ingrese el kilometraje", Integer.class);
+        Integer km = InputFile.obtenerDato("el kilometraje", Integer.class);
         if (km == null) {
             return null;
         }
         auto.setKm(km);
 
-        Double precio = InputFile.obtenerDato("Ingrese el precio", Double.class);
+        Double precio = InputFile.obtenerDato("el precio", Double.class);
         if (precio == null) {
             return null;
         }
