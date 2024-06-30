@@ -201,6 +201,6 @@ public class MostarVentasMenu implements IOpcionMenuSeleccionable {
 
     @Override
     public String tituloMenuSeleccioble() {
-        return "";
+        return "Ventas";
     }
 }
