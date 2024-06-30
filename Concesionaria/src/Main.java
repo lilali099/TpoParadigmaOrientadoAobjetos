@@ -25,7 +25,7 @@ public class Main {
                 System.out.println("Gracias por Utilizar");
                 System.out.println("Programa Realizado por: ");
                 System.out.println("Bruno Gustavo 1172421");
-                System.out.println("Fernandez Jimena legajo");
+                System.out.println("Fernandez Jimena 1175646");
                 System.out.println("Irigoyen, Ochoa Paloma 1171277");
                 System.out.println("Roubineau Augusto 1176007");
                 System.exit(0);
