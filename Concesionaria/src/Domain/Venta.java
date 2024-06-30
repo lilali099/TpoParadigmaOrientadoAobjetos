@@ -11,6 +11,7 @@ public class Venta implements IDataTableRecord {
     private String vendedor;
     private Integer[] planCuotas;
 
+
     protected Venta(){
 
     }
@@ -31,12 +32,24 @@ public class Venta implements IDataTableRecord {
         return vendedor;
     }
 
+    public void setPlanCuotas(Integer[] planCuotas) {
+        this.planCuotas = planCuotas;
+    }
+
     public double getPrecioFinal() {
         return precioFinal;
     }
 
+    public void setPrecioFinal(double precioFinal) {
+        this.precioFinal = precioFinal;
+    }
+
     public String getMetodoDePago() {
         return metodoDePago;
+    }
+
+    public void setMetodoDePago(String metodoDePago) {
+        this.metodoDePago = metodoDePago;
     }
 
     public Integer[] getPlanCuotas() {
