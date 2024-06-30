@@ -97,9 +97,16 @@ public class Auto extends Vehiculo{
     }
 
 
-
-
-
-
-
+    @Override
+    public void mostrarDetalle() {
+        System.out.println ("Detalles del auto");
+        System.out.println ("Color: " +getColor());
+        System.out.println ("Marca: " +getMarca());
+        System.out.println ("Modelo: " +getModelo());
+        System.out.println ("Año: " + getAnio());
+        System.out.println ("Patente: " +getPatente());
+        System.out.println ("Kilometros: " +getKm());
+        System.out.println ("Precio: " +getPrecio());
+        System.out.println ("Cantidad de puertas: " +getCantidadDePuertas());
+    }
 }
