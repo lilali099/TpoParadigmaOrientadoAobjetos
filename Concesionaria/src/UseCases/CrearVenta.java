@@ -1,18 +1,18 @@
 package UseCases;
 
-import Domain.Concecionaria;
+import Domain.Concesionaria;
 import Domain.Venta;
 import Utils.IOpcionMenuSeleccionable;
 
 public class CrearVenta implements IOpcionMenuSeleccionable {
     @Override
-    public void execute(Concecionaria concecionaria) {
+    public void execute(Concesionaria concesionaria) {
         System.out.println("Generar Venta");
-        Venta venta = Venta.create(concecionaria.getVehiculos().stream().toList());
+        Venta venta = Venta.create(concesionaria.getVehiculos().stream().toList());
 
         if (venta != null) {
-            concecionaria.getVentas().add(venta);
-            concecionaria.getVehiculos().remove(venta.getVehiculo());
+            concesionaria.getVentas().add(venta);
+            concesionaria.getVehiculos().remove(venta.getVehiculo());
             venta.mostrarDetalle();
         }
     }

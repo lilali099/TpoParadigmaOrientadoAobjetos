@@ -1,8 +1,8 @@
 package Utils;
 
-import Domain.Concecionaria;
+import Domain.Concesionaria;
 
 public interface IOpcionMenuSeleccionable {
-    void execute(Concecionaria concecionaria);
+    void execute(Concesionaria concesionaria);
     String tituloMenuSeleccioble();
 }

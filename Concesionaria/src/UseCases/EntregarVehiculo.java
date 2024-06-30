@@ -1,12 +1,12 @@
 package UseCases;
 
-import Domain.Concecionaria;
+import Domain.Concesionaria;
 import Utils.IOpcionMenuSeleccionable;
 
 public class EntregarVehiculo implements IOpcionMenuSeleccionable {
 
     @Override
-    public void execute(Concecionaria concecionaria) {
+    public void execute(Concesionaria concesionaria) {
 
     }
 
