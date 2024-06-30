@@ -1,4 +1,7 @@
-package Domain.PlanesDePago.;
+package Domain.PlanesDePago;
+
+import Domain.IPlanPagos;
+import Domain.Venta;
 
 public class PlanAhorro implements IPlanPagos {
     @Override

@@ -81,55 +81,39 @@ public class DataTable<T extends IDataTableRecord> {
     }
 
     private void gestionarFiltros() {
-        if (filtroActual != null) {
-            filtroActual = null;
+        filtroActual = gestionarDatos(filtroActual, filtros);
+    }
+
+    private IOpcionFiltradoSeleccionable<T> gestionarDatos(IOpcionFiltradoSeleccionable<T> variableFiltrar, List<IOpcionFiltradoSeleccionable<T>> opciones) {
+        if (variableFiltrar != null) {
+            return null;
         } else {
             int contador = 1;
-            filtros.forEach(x -> System.out.println(contador + ") "+ x.tituloMenuSeleccioble()));
+            opciones.forEach(x -> System.out.println(contador + ") "+ x.tituloMenuSeleccioble()));
 
             System.out.println(contador + ") Volver");
 
             String opcion = leerOpcion();
             int numero = Integer.parseInt(opcion);
 
-            if (0 < numero && numero <= filtros.size()) {
-                filtroActual = filtros.get(numero-1);
+            if (0 < numero && numero <= opciones.size()) {
+                return opciones.get(numero-1);
             }
-            else if (numero == filtros.size() + 1) {
-                filtroActual = null;
+            else if (numero == opciones.size() + 1) {
+                return null;
             }
             else{
                 System.out.println(datoInvalido(opcion));
+                return null;
             }
         }
     }
 
     private void gestionarOrdenamiento() {
-        if (ordenamientoActual != null) {
-            ordenamientoActual = null;
-        } else {
-            int contador = 1;
-            ordenado.forEach(x -> System.out.println(contador + ") "+ x.tituloMenuSeleccioble()));
-
-            System.out.println(contador + ") Volver");
-
-            String opcion = leerOpcion();
-            int numero = Integer.parseInt(opcion);
-
-            if (0 < numero && numero <= ordenado.size()) {
-                ordenamientoActual = ordenado.get(numero-1);
-            }
-            else if (numero == ordenado.size() + 1) {
-                ordenamientoActual = null;
-            }
-            else{
-                System.out.println(datoInvalido(opcion));
-            }
-        }
+        ordenamientoActual = gestionarDatos(ordenamientoActual, ordenado);
     }
 
     private static<T extends IDataTableRecord> void mostrarDetalle(List<T> data) {
-        // Implementa la lógica para mostrar el detalle de una venta
         String opcion = leerOpcion();
         int numero = Integer.parseInt(opcion);
 

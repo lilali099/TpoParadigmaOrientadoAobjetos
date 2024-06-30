@@ -41,8 +41,6 @@ public class Auto extends Vehiculo{
         }
         auto.setChasis(chasis);
 
-        //completar con todas las propiedades
-
         Integer cantidadDePuertas = InputFile.obtenerDato("cantidad de puertas:", Integer.class);
         if (cantidadDePuertas == null) {
             return null;
@@ -91,11 +89,14 @@ public class Auto extends Vehiculo{
         }
         auto.setPrecio(precio);
 
-
-
         return auto;
     }
 
+
+    @Override
+    public String getDataTableRecord() {
+        return "";
+    }
 
     @Override
     public void mostrarDetalle() {

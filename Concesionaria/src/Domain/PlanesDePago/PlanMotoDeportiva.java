@@ -1,4 +1,9 @@
-package Domain.PlanesDePago.;
+package Domain.PlanesDePago;
+
+import Domain.Auto;
+import Domain.IPlanPagos;
+import Domain.Moto;
+import Domain.Venta;
 
 public class PlanMotoDeportiva implements IPlanPagos {
     @Override
@@ -17,6 +22,6 @@ public class PlanMotoDeportiva implements IPlanPagos {
 
     @Override
     public boolean condicion(Venta venta) {
-        return true;
+        return venta.getVehiculo() instanceof Moto;
     }
 }
