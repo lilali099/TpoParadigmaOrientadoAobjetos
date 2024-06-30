@@ -2,11 +2,12 @@ package Domain;
 
 import UseCases.ObtenerVehiculo;
 import Utils.IDataTableRecord;
+import Utils.InputFile;
 
 import java.util.List;
 
 public class Venta implements IDataTableRecord {
-    public boolean entregado;
+    private boolean entregado;
     private String metodoDePago;
     private double precioFinal;
 
@@ -34,6 +35,14 @@ public class Venta implements IDataTableRecord {
 
     public String getComprador() {
         return comprador;
+    }
+
+    public void setVendedor(String vendedor) {
+        this.vendedor = vendedor;
+    }
+
+    public void setComprador(String comprador) {
+        this.comprador = comprador;
     }
 
     public String getVendedor() {
@@ -72,16 +81,35 @@ public class Venta implements IDataTableRecord {
             return null;
         }
         venta.setVehiculo(vehiculoList.get(vehiculoNumero));
+        String comprador = InputFile.obtenerDato("Ingrese el nombre del comprador", String.class);
+        if (comprador == null) {
+            return null;
+        }
+        venta.setComprador(comprador);        venta.setVehiculo(vehiculoList.get(vehiculoNumero));
+        String vendedor = InputFile.obtenerDato("Ingrese el nombre del vendedor", String.class);
+        if (vendedor == null) {
+            return null;
+        }
+        venta.setVendedor(vendedor);
 
         return venta;
     }
 
     @Override
     public String getDataTableRecord() {
-        return "";
+        return "Método de pago: "+ getMetodoDePago()+ ", Precio final:" + getPrecioFinal();
     }
 
     public void mostrarDetalle(){
+        System.out.println ("Detalles de la venta");
+        System.out.println("Método de pago: "+getMetodoDePago());
+        System.out.println("Precio final:"+getPrecioFinal());
+        System.out.println("Cuotas:" +getPlanCuotas());
+        System.out.println("Comprador: "+getComprador());
+        System.out.println("Vendedor: "+getVendedor());
+        getVehiculo().mostrarDetalle();
+
+
 
     }
 }
