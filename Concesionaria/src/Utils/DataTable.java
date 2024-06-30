@@ -137,7 +137,7 @@ public class DataTable<T extends IDataTableRecord> {
     }
 
     private static String leerOpcion() {
-        System.out.print("Ingrese el numero de la opción: ");
+        System.out.print("Ingrese el número de la opción: ");
         return lectura.nextLine();
     }
 

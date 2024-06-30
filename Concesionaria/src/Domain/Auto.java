@@ -36,7 +36,7 @@ public class Auto extends Vehiculo{
         }
         auto.setChasis(chasis);
 
-        Integer cantidadDePuertas = InputFile.obtenerDato("cantidad de puertas:", Integer.class);
+        Integer cantidadDePuertas = InputFile.obtenerDato("cantidad de puertas", Integer.class);
         if (cantidadDePuertas == null) {
             return null;
         }

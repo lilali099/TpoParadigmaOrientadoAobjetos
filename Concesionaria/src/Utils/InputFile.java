@@ -6,7 +6,16 @@ import java.util.function.Predicate;
 public class InputFile {
     public static <T> T obtenerDato(String nombrePropiedad, Class<T> tipo) {
         Scanner lectura = new Scanner(System.in);
+        boolean primeraVez = true;
         while (true) {
+
+            if (primeraVez) {
+                primeraVez = false;
+            }
+            else{
+                System.out.println("Ingrese cancelar para finalizar la operación");
+
+            }
             System.out.println("Ingrese " + nombrePropiedad + ":");
             String input = lectura.nextLine();
             try {
@@ -41,6 +50,7 @@ public class InputFile {
                 primeraVez = false;
             }
             else{
+                System.out.println("Ingrese cancelar para finalizar la operación");
 
             }
             System.out.println("Ingrese " + nombrePropiedad + ":");

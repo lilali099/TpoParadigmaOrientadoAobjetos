@@ -15,11 +15,11 @@ public class AñadirNuevoVehiculoMenu implements IOpcionMenuSeleccionable {
         opcionesMenuVentas.add(new CrearAuto());
         opcionesMenuVentas.add(new CrearMoto());
 
-        SelectMenu.generarMenu(concecionaria,"Seleccionar Tipo de Vehiculo", opcionesMenuVentas);
+        SelectMenu.generarMenu(concecionaria,"Seleccionar Tipo de Vehículo", opcionesMenuVentas);
     }
 
     @Override
     public String tituloMenuSeleccioble() {
-        return "Añadir Nuevo Vehiculo";
+        return "Añadir Nuevo Vehículo";
     }
 }

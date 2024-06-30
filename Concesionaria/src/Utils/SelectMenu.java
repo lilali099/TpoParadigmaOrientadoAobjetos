@@ -23,7 +23,7 @@ public class SelectMenu {
             return;
         }
         Scanner lectura = new Scanner(System.in);
-        //se mantiene como texto para luego convertirlo a numero para poder mostrarlo en caso de que se equivoque
+        //se mantiene como texto para luego convertirlo a número para poder mostrarlo en caso de que se equivoque
         String opcion = "";
         while (true){
             try {
@@ -39,7 +39,7 @@ public class SelectMenu {
                     System.out.println(menuOpcion + ")Volver");
                 }
 
-                System.out.println("Ingrese el numero de la opción: ");
+                System.out.println("Ingrese el número de la opción: ");
                 opcion = lectura.nextLine();
 
                 int numero = Integer.parseInt(opcion);
