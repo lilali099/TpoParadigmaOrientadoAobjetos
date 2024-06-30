@@ -1,17 +1,11 @@
 package UseCases;
 
 import Domain.*;
-import Domain.PlanesDePago.PagoContado;
-import Domain.PlanesDePago.PlanAhorro;
-import Domain.PlanesDePago.PlanMotoDeportiva;
-import Domain.PlanesDePago.PlanSedan;
-import Utils.IOpcionFiltradoSeleccionable;
+import Domain.PlanesDePago.*;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class ObtenerPlanPagos {
 
