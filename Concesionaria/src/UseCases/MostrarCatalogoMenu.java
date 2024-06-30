@@ -71,7 +71,7 @@ public class MostrarCatalogoMenu implements IOpcionMenuSeleccionable {
 
         DataTable<Vehiculo> dataTable = new DataTable<>();
 
-        dataTable.execute("Menu Ventas", filtros, ordenado, concecionaria.getVehiculos().stream().toList());
+        dataTable.execute("Catalogo Vehiculos", filtros, ordenado, concecionaria.getVehiculos().stream().toList());
     }
 
     @Override

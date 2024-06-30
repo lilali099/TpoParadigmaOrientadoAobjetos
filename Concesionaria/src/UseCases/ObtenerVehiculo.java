@@ -175,7 +175,6 @@ public class ObtenerVehiculo {
     }
 
     private void mostrarDetalle(List<Vehiculo> vehiculos) {
-        // Implementa la lógica para mostrar el detalle de una venta
         String opcion = leerOpcion();
         int numero = Integer.parseInt(opcion);
 
