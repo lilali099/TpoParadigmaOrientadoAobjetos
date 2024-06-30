@@ -2,19 +2,21 @@ package Domain;
 
 import Utils.InputFile;
 
+import java.util.function.Predicate;
+
 public class Auto extends Vehiculo{
-    public int getChasis() {
+    public String getChasis() {
         return chasis;
     }
 
-    private int chasis;
+    private String chasis;
     private int cantidadDePuertas;
 
     public void setCantidadDePuertas(int cantidadDePuertas) {
         this.cantidadDePuertas = cantidadDePuertas;
     }
 
-    public void setChasis(int chasis) {
+    public void setChasis(String chasis) {
         this.chasis = chasis;
     }
 
@@ -30,13 +32,22 @@ public class Auto extends Vehiculo{
     public static Auto create(){
         Auto auto = new Auto();
 
-        Integer chasis = InputFile.obtenerDatoInteger("el chasis");
+        Predicate<String> validacionChasis = input -> !input.trim().isEmpty();
+        String chasis = InputFile.obtenerDatoString("el chasis", "No puede estar vacio", validacionChasis);
         if (chasis == null) {
             return null;
         }
         auto.setChasis(chasis);
 
-        Integer cantidadDePuertas = InputFile.obtenerDatoInteger("la cantidad de puertas");
+        Predicate<String> validacionPositivo = input -> {
+            try {
+                return Integer.parseInt(input) > 0;
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        };
+
+        Integer cantidadDePuertas = InputFile.obtenerDatoInteger("la cantidad de puertas", "No puede ser negativo o 0", validacionPositivo);
         if (cantidadDePuertas == null) {
             return null;
         }
@@ -66,19 +77,28 @@ public class Auto extends Vehiculo{
         }
         auto.setPatente(patente);
 
-        Integer anio = InputFile.obtenerDatoInteger("el año");
+
+        Predicate<String> validacionAño = input -> {
+            try {
+                return Integer.parseInt(input) > 1900 && Integer.parseInt(input) < 2024;
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        };
+
+        Integer anio = InputFile.obtenerDatoInteger("el año", "El año es incorrecto", validacionAño);
         if (anio == null) {
             return null;
         }
         auto.setAnio(anio);
 
-        Integer km = InputFile.obtenerDatoInteger("el kilometraje");
+        Integer km = InputFile.obtenerDatoInteger("el kilometraje", "No puede ser negativo o 0", validacionPositivo);
         if (km == null) {
             return null;
         }
         auto.setKm(km);
 
-        Double precio = InputFile.obtenerDatoDouble("el precio");
+        Double precio = InputFile.obtenerDatoDouble("el precio", "No puede ser negativo o 0", validacionPositivo);
         if (precio == null) {
             return null;
         }
