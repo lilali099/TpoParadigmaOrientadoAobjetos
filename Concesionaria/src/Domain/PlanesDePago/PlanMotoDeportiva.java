@@ -1,6 +1,5 @@
 package Domain.PlanesDePago;
 
-import Domain.IPlanPagos;
 import Domain.Moto;
 import Domain.Venta;
 

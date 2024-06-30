@@ -18,6 +18,7 @@ public class Main {
         opcionesMenuPrincipal.add(new MostrarVentasMenu());
         opcionesMenuPrincipal.add(new MostrarCatalogoMenu());
         opcionesMenuPrincipal.add(new MostrarInformeVentas());
+        opcionesMenuPrincipal.add(new EntregarVehiculo());
         opcionesMenuPrincipal.add(new IOpcionMenuSeleccionable() {
             @Override
             public void execute(Concesionaria concesionaria) {

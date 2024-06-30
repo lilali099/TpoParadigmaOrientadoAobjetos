@@ -2,6 +2,8 @@ package Domain;
 
 import Utils.InputFile;
 
+import java.util.function.Predicate;
+
 public class Moto extends Vehiculo{
     private String tipoMoto;
     private int cilindrada;
@@ -25,7 +27,15 @@ public class Moto extends Vehiculo{
     public static Moto create(){
         Moto moto = new Moto();
 
-        Integer anio = InputFile.obtenerDatoInteger("el año");
+        Predicate<String> validacionAño = input -> {
+            try {
+                return Integer.parseInt(input) > 1900 && Integer.parseInt(input) < 2024;
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        };
+
+        Integer anio = InputFile.obtenerDatoInteger("el año", "El año es incorrecto", validacionAño);
         if (anio == null) {
             return null;
         }
@@ -37,7 +47,15 @@ public class Moto extends Vehiculo{
         }
         moto.setTipoMoto(tipoMoto);
 
-        Integer cilindrada = InputFile.obtenerDatoInteger("la cilindrada");
+        Predicate<String> validacionPositivo = input -> {
+            try {
+                return Integer.parseInt(input) > 0;
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        };
+
+        Integer cilindrada = InputFile.obtenerDatoInteger("la cilindrada","No puede ser negativo o 0", validacionPositivo);
         if (cilindrada == null) {
             return null;
         }
@@ -67,13 +85,13 @@ public class Moto extends Vehiculo{
         }
         moto.setPatente(patente);
 
-        Integer km = InputFile.obtenerDatoInteger("el kilometraje");
+        Integer km = InputFile.obtenerDatoInteger("el kilometraje","No puede ser negativo o 0", validacionPositivo);
         if (km == null) {
             return null;
         }
         moto.setKm(km);
 
-        Double precio = InputFile.obtenerDatoDouble("el precio");
+        Double precio = InputFile.obtenerDatoDouble("el precio","No puede ser negativo o 0", validacionPositivo);
         if (precio == null) {
             return null;
         }
