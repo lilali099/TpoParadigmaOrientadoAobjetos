@@ -43,6 +43,8 @@ public abstract class Vehiculo {
         return precio;
     }
 
+    public String getPatente (){return patente;}
+
     public void setColor(String color) {
         this.color = color;
     }
@@ -70,5 +72,9 @@ public abstract class Vehiculo {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+    public abstract void mostrarDetalle ();
+
+
 }
 
