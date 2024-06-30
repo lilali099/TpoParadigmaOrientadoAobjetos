@@ -9,6 +9,7 @@ public class Venta {
     private String vendedor;
     private Integer[] planCuotas;
 
+
     protected Venta(){
 
     }
@@ -29,12 +30,24 @@ public class Venta {
         return vendedor;
     }
 
+    public void setPlanCuotas(Integer[] planCuotas) {
+        this.planCuotas = planCuotas;
+    }
+
     public double getPrecioFinal() {
         return precioFinal;
     }
 
+    public void setPrecioFinal(double precioFinal) {
+        this.precioFinal = precioFinal;
+    }
+
     public String getMetodoDePago() {
         return metodoDePago;
+    }
+
+    public void setMetodoDePago(String metodoDePago) {
+        this.metodoDePago = metodoDePago;
     }
 
     public Integer[] getPlanCuotas() {
@@ -44,5 +57,7 @@ public class Venta {
     public static Venta create(){
         return new Venta();
     }
+
+
 }
 
