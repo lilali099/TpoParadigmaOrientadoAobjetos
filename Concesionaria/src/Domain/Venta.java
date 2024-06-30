@@ -1,6 +1,8 @@
 package Domain;
 
-public class Venta {
+import Utils.IDataTableRecord;
+
+public class Venta implements IDataTableRecord {
     public boolean entregado;
     private String metodoDePago;
     private double precioFinal;
@@ -8,6 +10,7 @@ public class Venta {
     private String comprador;
     private String vendedor;
     private Integer[] planCuotas;
+
 
     protected Venta(){
 
@@ -29,12 +32,24 @@ public class Venta {
         return vendedor;
     }
 
+    public void setPlanCuotas(Integer[] planCuotas) {
+        this.planCuotas = planCuotas;
+    }
+
     public double getPrecioFinal() {
         return precioFinal;
     }
 
+    public void setPrecioFinal(double precioFinal) {
+        this.precioFinal = precioFinal;
+    }
+
     public String getMetodoDePago() {
         return metodoDePago;
+    }
+
+    public void setMetodoDePago(String metodoDePago) {
+        this.metodoDePago = metodoDePago;
     }
 
     public Integer[] getPlanCuotas() {
@@ -43,6 +58,15 @@ public class Venta {
 
     public static Venta create(){
         return new Venta();
+    }
+
+    @Override
+    public String getDataTableRecord() {
+        return "";
+    }
+
+    public void mostrarDetalle(){
+
     }
 }
 

@@ -11,9 +11,9 @@ public class GenerarVentasMenu implements IOpcionMenuSeleccionable {
         Venta venta = Venta.create();
 
         if (venta != null) {
-            concecionaria.getTransacciones().add(venta);
+            concecionaria.getVentas().add(venta);
+            venta.mostrarDetalle();
         }
-        //mostrar venta
     }
 
     @Override

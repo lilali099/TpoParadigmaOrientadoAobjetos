@@ -3,10 +3,14 @@ package Domain;
 import Utils.InputFile;
 
 public class Auto extends Vehiculo{
+    public int getChasis() {
+        return chasis;
+    }
+
     private int chasis;
     private int cantidadDePuertas;
 
-    public void setcantidadDePuertas(int cantidadDePuertas) {
+    public void setCantidadDePuertas(int cantidadDePuertas) {
         this.cantidadDePuertas = cantidadDePuertas;
     }
 
@@ -18,36 +22,25 @@ public class Auto extends Vehiculo{
     protected Auto(){
 
     };
-    /*
-    public Auto(String color, String marca, String modelo, int anio, String patente, int km, double precio, int cantidadDePuertas) {
-        super(color, marca, modelo, anio, patente, km, precio);
-        this.cantidadDePuertas= cantidadDePuertas;
-    }*/
 
     public int getCantidadDePuertas() {
         return cantidadDePuertas;
     }
 
-    public void setCantidadDePuertas(int cantidadDePuertas) {
-        this.cantidadDePuertas = cantidadDePuertas;
-    }
-
     public static Auto create(){
         Auto auto = new Auto();
 
-        Integer chasis = InputFile.obtenerDato("chasis:", Integer.class);
+        Integer chasis = InputFile.obtenerDato("chasis", Integer.class);
         if (chasis == null) {
             return null;
         }
         auto.setChasis(chasis);
 
-        //completar con todas las propiedades
-
-        Integer cantidadDePuertas = InputFile.obtenerDato("Ingrese la cantidad de puertas", Integer.class);
+        Integer cantidadDePuertas = InputFile.obtenerDato("cantidad de puertas:", Integer.class);
         if (cantidadDePuertas == null) {
             return null;
         }
-        auto.setcantidadDePuertas(cantidadDePuertas);
+        auto.setCantidadDePuertas(cantidadDePuertas);
 
         String color = InputFile.obtenerDato("Ingrese el color", String.class);
         if (color == null) {
@@ -91,15 +84,26 @@ public class Auto extends Vehiculo{
         }
         auto.setPrecio(precio);
 
-
-
         return auto;
     }
 
 
+    @Override
+    public String getDataTableRecord() {
+        return "";
+    }
 
-
-
-
-
+    @Override
+    public void mostrarDetalle() {
+        System.out.println ("Detalles del auto");
+        System.out.println("Chasis: "+getChasis());
+        System.out.println ("Color: " +getColor());
+        System.out.println ("Marca: " +getMarca());
+        System.out.println ("Modelo: " +getModelo());
+        System.out.println ("Año: " + getAnio());
+        System.out.println ("Patente: " +getPatente());
+        System.out.println ("Kilometros: " +getKm());
+        System.out.println ("Precio: " +getPrecio());
+        System.out.println ("Cantidad de puertas: " +getCantidadDePuertas());
+    }
 }

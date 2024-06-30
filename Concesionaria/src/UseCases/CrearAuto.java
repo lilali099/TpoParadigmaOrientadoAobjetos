@@ -12,6 +12,7 @@ public class CrearAuto implements IOpcionMenuSeleccionable {
 
         if (auto != null) {
             concecionaria.getVehiculos().add(auto);
+            auto.mostrarDetalle();
         }
     }
 

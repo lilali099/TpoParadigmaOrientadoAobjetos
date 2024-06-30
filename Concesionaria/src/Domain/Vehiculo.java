@@ -1,6 +1,8 @@
 package Domain;
 
-public abstract class Vehiculo {
+import Utils.IDataTableRecord;
+
+public abstract class Vehiculo implements IDataTableRecord {
     private String color;
     private String marca;
     private String modelo;
@@ -43,6 +45,8 @@ public abstract class Vehiculo {
         return precio;
     }
 
+    public String getPatente (){return patente;}
+
     public void setColor(String color) {
         this.color = color;
     }
@@ -70,5 +74,7 @@ public abstract class Vehiculo {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+    public abstract void mostrarDetalle ();
 }
 

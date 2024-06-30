@@ -44,7 +44,7 @@ public class SelectMenu {
 
                 int numero = Integer.parseInt(opcion);
 
-                if (numero <= menuSeleccionableList.size()){
+                if (numero > 0 && numero <= menuSeleccionableList.size()){
                     menuSeleccionableList.get(numero - 1).execute(concecionaria);
                     break;
                 }
